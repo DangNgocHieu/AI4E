@@ -1,0 +1,31 @@
+#project {
+    height: 608px;
+    background-color: #fff;
+    width: 95%;
+    margin: 0 auto;
+    border-radius: 20px;
+    .text_domain {
+        font-size: 24px;
+        color: #0d2b7c;
+        font-weight: 500;
+        padding: 50px 0 0 30px;
+    }
+    .chart {
+        display: flex;
+        justify-content: space-around;
+        padding-top: 150px;
+    }
+    .footer {
+        display: flex;
+        justify-content: space-around;
+        width: 70%;
+        padding-top: 70px;
+        .text_color {
+            color: #0D2B7C;
+            font-weight: 500;
+        }
+        .text_below {
+            color: #6296FF;
+        }
+    }
+}

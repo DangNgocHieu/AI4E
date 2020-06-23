@@ -1,0 +1,89 @@
+ul {
+    margin: 0;
+    padding: 0;
+}
+li {
+    list-style: none;
+    height: 44px;
+    display: flex;
+    align-items: center;
+}
+#menu {
+    height: 768px;
+    width: 20%;
+    background: #091a46;
+    position: relative;
+    .wrraper {
+        width: 100%;
+        margin: 0 auto;
+        // height: 44px;
+        flex-direction: column;
+
+        .img_title {
+            width: 157px;
+            height: 60px;
+            top: 50px;
+            left: 50px;
+            position: absolute;
+        }
+        .btn_create {
+            height: 48px;
+            width: 80%;
+            position: absolute;
+            top: 156px;
+            background-color: #071949;
+            outline: none;
+            color: #6296FF;
+            border-radius: 10px;
+            left: 20px;
+            border-color: #73C0FF;
+            .icon_add {
+                padding-right: 10px;
+            }
+        }
+    
+        .list-menu {
+            display: flex;
+            flex-direction: column;
+            position: absolute;
+            width: 100%;
+            top: 242px;
+            .icon-menu {
+                padding-left: 20px;
+                padding-right: 20px;
+            }       
+            a {
+                height: 44px;
+                text-decoration: none;
+                font-size: 15px;
+                color: #fff;
+                display: flex;
+                align-items: center;
+            }
+            .active {
+                background: #73C0FF;
+                border: none;
+            }
+            
+            .project {
+                position: relative;
+                height: 60px;
+                
+                &:hover {
+                    border-color: #6296FF;
+                    background: #6296FF;
+                }
+            }
+
+            .report {
+                border-right: 1px solid rgba(0, 0, 0, 0.1);
+            }
+        }
+        .shop {
+            background: #0076b9;
+            &:hover {
+                background: #41556e;
+            }
+        }
+    }
+}
