@@ -10,15 +10,15 @@ li {
 }
 #menu {
     height: 768px;
-    width: 20%;
-    background: #091a46;
+    width: 100%;
     position: relative;
     .wrraper {
-        width: 100%;
+        width: 20%;
         margin: 0 auto;
-        // height: 44px;
+        height: 100%;
         flex-direction: column;
-
+        position: absolute;
+        background-color: #091A46;
         .img_title {
             width: 157px;
             height: 60px;
@@ -33,15 +33,15 @@ li {
             top: 156px;
             background-color: #071949;
             outline: none;
-            color: #6296FF;
+            color: #6296ff;
             border-radius: 10px;
             left: 20px;
-            border-color: #73C0FF;
+            border-color: #73c0ff;
             .icon_add {
                 padding-right: 10px;
             }
         }
-    
+
         .list-menu {
             display: flex;
             flex-direction: column;
@@ -51,7 +51,7 @@ li {
             .icon-menu {
                 padding-left: 20px;
                 padding-right: 20px;
-            }       
+            }
             a {
                 height: 44px;
                 text-decoration: none;
@@ -61,17 +61,17 @@ li {
                 align-items: center;
             }
             .active {
-                background: #73C0FF;
+                background: #73c0ff;
                 border: none;
             }
-            
+
             .project {
                 position: relative;
                 height: 60px;
-                
+
                 &:hover {
-                    border-color: #6296FF;
-                    background: #6296FF;
+                    border-color: #6296ff;
+                    background: #6296ff;
                 }
             }
 
@@ -85,5 +85,10 @@ li {
                 background: #41556e;
             }
         }
+    }
+    .menu_right {
+        width: 80%;
+        position: absolute;
+        right: 0;
     }
 }
