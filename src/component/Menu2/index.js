@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEyeSlash, faCube, faExchangeAlt, faUser, faDollarSign, faMale, faChartBar, faTh, faTags, faCheckSquare, faReplyAll, faCompressArrowsAlt, faFileAlt, faShareAlt, faUndo, faTable, faFileInvoiceDollar, faChartPie, faShare, faCircle, faAtom, faPlus } from '@fortawesome/free-solid-svg-icons';
+import '../../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 
-class Menu extends Component {
+class Menu2 extends Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -65,10 +66,8 @@ class Menu extends Component {
   render() {
 
     return (
-      <div id="menu" >
-        
-
-        
+      <div id="menu2" >
+           
         <div className="wrraper ">
           <img class="img_title" src="https://scontent.fhan2-1.fna.fbcdn.net/v/t1.15752-9/105033869_3305283132837378_6609863409130475606_n.png?_nc_cat=101&_nc_sid=b96e70&_nc_ohc=tGtRP-Ss8AMAX-WvCzY&_nc_ht=scontent.fhan2-1.fna&oh=e1629833ddac424ac60e4c9d0fe916be&oe=5F17E141"></img>
 
@@ -105,4 +104,4 @@ class Menu extends Component {
   }
 }
 
-export default Menu;
+export default Menu2;

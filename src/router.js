@@ -3,6 +3,7 @@ import Home from './pages/Home';
 import Login from './pages/Login';
 import DashBoard from './pages/DashBoard';
 import Products from './pages/Products';
+import Test from './pages/Test';
 const routes = [
     {
         path: '/',
@@ -23,6 +24,12 @@ const routes = [
         path : '/Products',
         exact : false,
         main: ({history}) => <Products history={history}/>
+    },
+
+    {
+        path: '/Test',
+        exact: false,
+        main: ({history}) => <Test history={history}/>
     },
 ];
 
