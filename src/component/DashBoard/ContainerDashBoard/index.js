@@ -20,7 +20,7 @@ class ContainerDashBoard extends Component {
         else {
             return (
                 <div id="containerdashboard">
-                <ModelSetting />
+                <ProjectOne />
             </div>
             );
         }
