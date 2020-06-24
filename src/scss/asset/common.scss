@@ -1,9 +1,13 @@
+* {
+    box-sizing: content-box;
+}
 html {
     height: 100%;
 }
 body {
     height: 100%;
 }
+
 #root{
     background-color: #c8ced350;
     display: flex;
@@ -18,6 +22,9 @@ body {
     width: 100%;
 }
 #home {
+    width: 100%;
+}
+#test {
     width: 100%;
 }
 #support {
@@ -50,6 +57,8 @@ body {
         border-top-left-radius: 5px;
 
     }
+
+    
 }
 p{
     font-size: 14px;

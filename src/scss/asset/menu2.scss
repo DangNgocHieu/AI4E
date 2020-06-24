@@ -1,0 +1,96 @@
+ul {
+    margin: 0;
+    padding: 0;
+}
+li {
+    list-style: none;
+    height: 44px;
+    display: flex;
+    align-items: center;
+}
+#menu2 {
+    margin-right: 0;
+    padding-right: 0;
+    height: 100vh;
+    width: 100%;
+    background: #091a46;
+    position: relative;
+    .wrraper {
+        text-align: center;
+        width: 100%;
+        margin: 0 auto;
+        height: 44px;
+        flex-direction: column;
+        // text-align: center;
+        .img_title {
+            // text-align: center;
+            margin-top: 1em;
+            margin-left: 3em;
+            position: absolute;
+        }
+        .btn_create {
+            height: 48px;
+            width: 80%;
+            // margin-left: 3vw;
+            // margin-right: 3vw;
+            margin-top: 20vh;;
+            background-color: #071949;
+            outline: none;
+            color: #6296FF;
+            border-radius: 10px;
+            
+            border-color: #73C0FF;
+            .icon_add {
+                padding-right: 10px;
+                font-size: larger;
+            }
+        }
+        
+
+        .list-menu {
+            display: flex;
+            flex-direction: column;
+            position: absolute;
+            width: 100%;
+            top: 242px;
+            .icon-menu {
+                padding-left: 20px;
+                padding-right: 20px;
+            }       
+            a {
+                
+                text-decoration: none;
+                
+                color: #fff;
+                display: flex;
+                align-items: center;
+            }
+            .active {
+                color: white !important;
+                    background: linear-gradient(172.27deg, #73C0FF -48.55%, #056FFF 128.19%);
+            }
+            
+            .project {
+                color: #6296FF;
+                position: relative;
+                height: 60px;
+                
+                &:hover {
+                    border-color: #6296FF;
+                    color: white;
+                    background: linear-gradient(172.27deg, #73C0FF -48.55%, #056FFF 128.19%);
+                }
+            }
+
+            .report {
+                border-right: 1px solid rgba(0, 0, 0, 0.1);
+            }
+        }
+        .shop {
+            background: #0076b9;
+            &:hover {
+                background: #41556e;
+            }
+        }
+    }
+}

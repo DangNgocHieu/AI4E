@@ -22,6 +22,7 @@ export default function Login() {
       <div className="other">
         <span className="support">@AI4E 2020. All right reserved.</span>
       </div>
+      
     </div>
   );
 }
