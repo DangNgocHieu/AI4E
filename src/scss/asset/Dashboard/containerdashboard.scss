@@ -1,18 +1,18 @@
 #containerdashboard {
     width: 100%;
     display: flex;
-    background-color: #F4F9FF;
+    background-color: #f4f9ff;
     height: 768px;
     .wrraper_contaier {
-        width: 80%;
-        height: 100%;
-
+        width: 100%;
         .dashboardRight {
             width: 100%;
             display: flex;
             flex-direction: column;
             justify-content: flex-end;
-            .dashboardInfo {
+           
+            .dashboardInfo,
+            .info {
                 background-color: #fff;
                 height: 60px;
                 width: 100%;
@@ -20,6 +20,7 @@
                 justify-content: flex-end;
                 align-items: center;
                 flex-direction: row;
+
                 .img {
                     width: 30px;
                     height: 30px;
@@ -30,15 +31,34 @@
                     padding-right: 20px;
                 }
             }
-            .dashboardProject {
-                .text_project {
+            .dashboardProject,
+            .dashboardCreate,
+            .dashboardDomain01,
+            .dashboardModelSetting {
+                .text_project,
+                .text_create,
+                .text_domain,
+                .text_modelsetting {
                     height: 80px;
                     font-size: 24px;
                     color: #0d2b7c;
                     font-weight: 500;
                     width: 95%;
                     margin: 0 auto;
+                    line-height: 80px;
                 }
+            }
+        }
+    }
+}
+@media only screen and (max-width: 360px) {
+    #containerdashboard {
+        .wrraper_contaier {
+            .text_project, .text_create, .text_domain {
+                font-size: 16px!important;
+                height: 40px!important;
+                line-height: 40px!important;
+                padding: 0;
             }
         }
     }
