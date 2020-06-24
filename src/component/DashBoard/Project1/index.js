@@ -1,6 +1,13 @@
 import React, { Component } from "react";
 import "./index.scss"
+import axios from "axios"
+
 class Project1 extends Component {
+
+    componentDidMount() {
+        axios.get('http://localhost:3000/modellist',)
+    }
+
     render() {
         return (
             <div id="project">
@@ -11,7 +18,7 @@ class Project1 extends Component {
                     <img src="https://scontent.fhan2-4.fna.fbcdn.net/v/t1.15752-9/104981586_255208352437550_5389192417200094710_n.png?_nc_cat=104&_nc_sid=b96e70&_nc_ohc=gSPHCQSgznAAX_gHdF6&_nc_ht=scontent.fhan2-4.fna&oh=98c8c044dce82acce8776e22854f56e3&oe=5F163487"></img>
                 </div>
                 <div className="footer">
-                   <div className="text_data">
+                    <div className="text_data">
                         <p className="text_on">Data field you have: </p>
                         <p className="text_below">
                             <a>Filed 01</a>,
