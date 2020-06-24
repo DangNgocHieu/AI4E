@@ -12,7 +12,7 @@ class ContainerDashBoard extends Component {
         if (this.props.isChange === "create") {
             return (
                 <div id="containerdashboard">
-                    <Create />
+                    <Create a={this.props.isChange}/>
                 </div>
 
             );

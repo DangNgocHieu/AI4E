@@ -2,7 +2,22 @@ import React, { Component } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
 import "./index.scss"
+import Domain01 from "../Domain01"
+import { Link } from 'react-router-dom';
 class Create extends Component {
+    constructor(props) {
+        super(props)
+        this.state = {
+            domain: false
+        }
+    }
+    handClick = () => {
+        this.setState({
+            domain: !this.state.domain
+        })
+        console.log(this.state.domain);
+
+    }
     render() {
         return (
             <div className="wrraper_contaier">
@@ -18,7 +33,8 @@ class Create extends Component {
                             <p className="text_domain">Please choose a Domain</p>
                             <div className="list_domain">
                                 <div className="domain">
-                                    <button className="btn_domain">Domain 01</button>
+                                    <button className="btn_domain" ><Link className="link"  to="/Domain">Domain 01</Link>
+                                    </button>
                                 </div>
                                 <div className="domain">
                                     <button className="btn_domain">Domain 02</button>

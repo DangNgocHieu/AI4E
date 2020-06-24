@@ -2,12 +2,12 @@ import React from 'react';
 import Home from './pages/Home';
 import Login from './pages/Login';
 import DashBoard from './pages/DashBoard';
-import Products from './pages/Products';
+import Domain01 from './component/DashBoard/Domain01';
 const routes = [
     {
         path: '/',
         exact : true,
-        main: ({history}) => <Home history={history}/>
+        main: ({history}) => <Login history={history}/>
     },
     {
         path: '/Login',
@@ -20,9 +20,9 @@ const routes = [
         main: ({history}) => <DashBoard history={history}/>
     },
     {
-        path : '/Products',
+        path : '/Domain',
         exact : false,
-        main: ({history}) => <Products history={history}/>
+        main: ({history}) => <Domain01 history={history}/>
     },
 ];
 
