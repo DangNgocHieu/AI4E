@@ -1,5 +1,4 @@
 import React from 'react';
-import Home from './pages/Home';
 import Login from './pages/Login';
 import DashBoard from './pages/DashBoard';
 import Domain01 from './component/DashBoard/Domain01';

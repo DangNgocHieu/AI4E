@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronDown, faArrowLeft, faChevronLeft, faChevronRight, faPlus } from '@fortawesome/free-solid-svg-icons';
 import './index.scss'
+import { Link } from 'react-router-dom';
 class ModelSetting extends Component {
     render() {
         return (
@@ -10,7 +11,7 @@ class ModelSetting extends Component {
                     <div className="dashboardInfo">
                         <div className="back">
                             <FontAwesomeIcon icon={faArrowLeft} />
-                            <p>Back</p>
+                        <Link to={"/dashboard"}>Back</Link>
                         </div>
                         <div className="info">
                             <p className="text-name">Nguyen Phi Le</p>
@@ -29,15 +30,87 @@ class ModelSetting extends Component {
                                 <p className="text">Your Trained Models</p>
                                 <div className="model">
                                     <p className="text_model">Model 01</p>
+                                    <div className="info_model">
+                                        <div className="column">
+                                            <p>Data field you have: </p>
+                                            <a href="#">Filed 01,</a>
+                                            <a href="#"> Filed 02,</a>
+                                            <a href="#"> Filed 03</a>
+                                        </div>
+                                        <div className="column">
+                                            <p>Data field you want to predict: </p>
+                                            <a href="#">Filed 01,</a>
+                                            <a href="#"> Filed 02,</a>
+                                            <a href="#"> Filed 04</a>
+                                        </div>
+                                        <div className="column">
+                                            <p>Time range you want to predict: </p>
+                                            <a href="#">1000</a>
+                                        </div>
+                                    </div>
                                 </div>
                                 <div className="model">
                                     <p className="text_model">Model 02</p>
+                                    <div className="info_model">
+                                        <div className="column">
+                                            <p>Data field you have: </p>
+                                            <a href="#">Filed 01,</a>
+                                            <a href="#"> Filed 02,</a>
+                                            <a href="#"> Filed 03</a>
+                                        </div>
+                                        <div className="column">
+                                            <p>Data field you want to predict: </p>
+                                            <a href="#">Filed 01,</a>
+                                            <a href="#"> Filed 02,</a>
+                                            <a href="#"> Filed 04</a>
+                                        </div>
+                                        <div className="column">
+                                            <p>Time range you want to predict: </p>
+                                            <a href="#">1000</a>
+                                        </div>
+                                    </div>
                                 </div>
                                 <div className="model">
                                     <p className="text_model">Model 03</p>
+                                    <div className="info_model">
+                                        <div className="column">
+                                            <p>Data field you have: </p>
+                                            <a href="#">Filed 01,</a>
+                                            <a href="#"> Filed 02,</a>
+                                            <a href="#"> Filed 03</a>
+                                        </div>
+                                        <div className="column">
+                                            <p>Data field you want to predict: </p>
+                                            <a href="#">Filed 01,</a>
+                                            <a href="#"> Filed 02,</a>
+                                            <a href="#"> Filed 04</a>
+                                        </div>
+                                        <div className="column">
+                                            <p>Time range you want to predict: </p>
+                                            <a href="#">1000</a>
+                                        </div>
+                                    </div>
                                 </div>
                                 <div className="model">
                                     <p className="text_model">Model 04</p>
+                                    <div className="info_model">
+                                        <div className="column">
+                                            <p>Data field you have: </p>
+                                            <a href="#">Filed 01,</a>
+                                            <a href="#"> Filed 02,</a>
+                                            <a href="#"> Filed 03</a>
+                                        </div>
+                                        <div className="column">
+                                            <p>Data field you want to predict: </p>
+                                            <a href="#">Filed 01,</a>
+                                            <a href="#"> Filed 02,</a>
+                                            <a href="#"> Filed 04</a>
+                                        </div>
+                                        <div className="column">
+                                            <p>Time range you want to predict: </p>
+                                            <a href="#">1000</a>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                             <div className="recommend_model ">

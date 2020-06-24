@@ -25,6 +25,9 @@
             width: 6%;
             padding-left: 20px;
             justify-content: space-around;
+            .link {
+                text-decoration: none;
+            }
         }
         .dashboardInfo,
         .info {

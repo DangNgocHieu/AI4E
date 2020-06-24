@@ -33,7 +33,7 @@ class Create extends Component {
                             <p className="text_domain">Please choose a Domain</p>
                             <div className="list_domain">
                                 <div className="domain">
-                                    <button className="btn_domain" ><Link className="link"  to="/Domain">Domain 01</Link>
+                                    <button className="btn_domain" ><Link className="link btn_domain"  to="/Domain">Domain 01</Link>
                                     </button>
                                 </div>
                                 <div className="domain">

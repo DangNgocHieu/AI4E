@@ -21,7 +21,8 @@
     .chart {
         width: 35%;
     }
-    .list_info_model, .recommend_model {
+    .list_info_model,
+    .recommend_model {
         width: 27%;
 
         .model {
@@ -31,6 +32,36 @@
             position: relative;
             box-sizing: border-box;
             background-color: #b6d664;
+            .info_model {
+                background-color: #fff;
+                border: 1px solid #6296ff;
+                width: 269px;
+                height: 216px;
+                position: absolute;
+                top: 30px;
+                right: -100px;
+                z-index: 2;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-around;
+                border-radius: 8px;
+                opacity: 0;
+                p {
+                    color: #0d2b7c;
+                    font-weight: 500;
+                    padding-left: 10px;
+                }
+                a {
+                    text-decoration: none;
+                    color: #6296ff;
+                    padding-left: 10px;
+                }
+            }
+            &:hover {
+                .info_model {
+                    opacity: 1;
+                }
+            }
             .text_model {
                 line-height: 60px;
                 color: #0d2b7c;
@@ -60,7 +91,7 @@
     .recommend_model {
         width: 27%;
         .our_model {
-            background-color: #EFC4A5;
+            background-color: #efc4a5;
         }
         .our_model::before {
             content: "";
@@ -69,15 +100,15 @@
             bottom: 0;
             width: 0;
             height: 0;
-            border-left: 30px solid #EFC4A5;
+            border-left: 30px solid #efc4a5;
             border-top: 30px solid transparent;
             border-bottom: 30px solid transparent;
         }
         .our_model:hover {
-            background-color: #FB9F5D;
+            background-color: #fb9f5d;
         }
         .our_model:hover::before {
-            border-left: 30px solid #FB9F5D;
+            border-left: 30px solid #fb9f5d;
         }
     }
     .train_next {
