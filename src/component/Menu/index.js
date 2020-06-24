@@ -64,24 +64,24 @@ class Menu extends Component {
             <FontAwesomeIcon icon={faPlus} className="icon_add" />
              Create New Project
              </button>
-          <div className="list-menu">
+          <div className="list_menu">
             <a className="project active" onClick={this.handleClickProject1}>
-              <FontAwesomeIcon className="icon-menu" icon={faCube} />
+              <FontAwesomeIcon className="icon_menu" icon={faCube} />
                   Project 1</a>
             <a className="project" onClick={this.handleClickProject2}>
-              <FontAwesomeIcon className="icon-menu" icon={faCube} />
+              <FontAwesomeIcon className="icon_menu" icon={faCube} />
                   Project 2
             </a>
             <a href="" className="project" onClick={this.handleClickProject3}>
-              <FontAwesomeIcon className="icon-menu" icon={faCube} />
+              <FontAwesomeIcon className="icon_menu" icon={faCube} />
                   Project 3
             </a>
             <a href="" className="project" onClick={this.handleClickProject4}>
-              <FontAwesomeIcon className="icon-menu" icon={faCube} />
+              <FontAwesomeIcon className="icon_menu" icon={faCube} />
                   Project 4
             </a>
             <a href="" className="project" onClick={this.handleClickProject5}>
-              <FontAwesomeIcon className="icon-menu" icon={faCube} />
+              <FontAwesomeIcon className="icon_menu" icon={faCube} />
                   Project 5
             </a>
 

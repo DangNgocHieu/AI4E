@@ -14,6 +14,9 @@
         display: flex;
         justify-content: space-around;
         padding-top: 150px;
+        img {
+            width: 33%;
+        }
     }
     .footer {
         display: flex;
@@ -21,11 +24,66 @@
         width: 70%;
         padding-top: 70px;
         .text_on {
-            color: #0D2B7C;
+            color: #0d2b7c;
             font-weight: 500;
         }
         .text_below {
-            color: #6296FF;
+            color: #6296ff;
+        }
+    }
+}
+@media only screen and (max-width: 360px) {
+    #project {
+        .text_domain {
+            font-size: 15px !important;
+            height: 40px !important;
+            padding: 0 !important;
+            line-height: 40px !important;
+        }
+        .chart {
+            padding-top: 50px;
+        }
+        .footer {
+            width: 100%;
+            .text_on,
+            .text_below {
+                font-size: 10px;
+            }
+        }
+    }
+}
+@media only screen and (max-width: 1024px) {
+    #project {
+        .chart {
+            padding-top: 70px;
+        }
+    }
+}
+@media only screen and (max-width: 375px) {
+    #project {
+        .text_domain {
+            padding: 0;
+        }
+        .chart {
+            padding-top: 50px;
+        }
+        .footer {
+            padding-top: 50px;
+            width: 90%;
+        }
+    }
+}
+@media only screen and (max-width : 414px) {
+    #project {
+        .text_domain {
+            padding: 0
+        }
+        .chart {
+            padding-top: 50px;
+        }
+        .footer {
+            padding-top: 50px;
+            width: 90%;
         }
     }
 }

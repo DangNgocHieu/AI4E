@@ -8,6 +8,7 @@ li {
     display: flex;
     align-items: center;
 }
+
 #menu {
     height: 768px;
     width: 100%;
@@ -18,7 +19,7 @@ li {
         height: 100%;
         flex-direction: column;
         position: absolute;
-        background-color: #091A46;
+        background-color: #091a46;
         .img_title {
             width: 157px;
             height: 60px;
@@ -42,13 +43,13 @@ li {
             }
         }
 
-        .list-menu {
+        .list_menu {
             display: flex;
             flex-direction: column;
             position: absolute;
             width: 100%;
             top: 242px;
-            .icon-menu {
+            .icon_menu {
                 padding-left: 20px;
                 padding-right: 20px;
             }
@@ -90,5 +91,118 @@ li {
         width: 80%;
         position: absolute;
         right: 0;
+    }
+}
+@media only screen and (max-width: 360px) {
+    #menu .wrraper {
+        .img_title {
+            width: 80%;
+            left: 10%;
+            top: 20px;
+            height: 30px;
+        }
+        .btn_create {
+            font-size: 8px;
+            left: 10%;
+            width: 80%;
+            top: 100px;
+            .icon_add {
+                padding-right: 5px;
+            }
+        }
+        .list_menu {
+            font-size: 8px;
+            top: 200px;
+            .project {
+                font-size: 12px;
+                .icon_menu {
+                    padding: 0 10px 0 0;
+                }
+            }
+        }
+    }
+}
+@media only screen and (max-width: 1024px) {
+    #menu .wrraper {
+        .img_title {
+            left: 10%;
+        }
+    }
+}
+@media only screen and (max-width: 768px) {
+    #menu .wrraper {
+        .img_title {
+            width: 80%;
+            height: 40px;
+        }
+        .btn_create {
+            font-size: 11px;
+        }
+        .list_menu {
+            .project {
+                padding-left: 10px;
+                .icon_menu {
+                    padding: 0 10px 0 0;
+                }
+            }
+        }
+    }
+}
+@media only screen and (max-width: 414px) {
+    #menu .wrraper {
+        .img_title {
+            width: 80%;
+        }
+        .btn_create {
+            left: 10%;
+            font-size: 11px;
+            .icon_add {
+                padding-right: 5px;
+            }
+        }
+        .list_menu {
+            .project {
+                .icon_menu {
+                    padding: 0 5px 0 0;
+                }
+            }
+        }
+    }
+}
+@media only screen and (max-width: 375px) {
+    #menu .wrraper {
+        .img_title {
+            width: 80%;
+            height: 30px;
+        }
+        .btn_create {
+            left: 10%;
+            font-size: 8px;
+            .icon_add {
+                padding-left: 5px;
+            }
+        }
+        .list_menu {
+            .project {
+                font-size: 12px;
+                padding-left: 5px;
+                .icon_menu {
+                    padding: 0;
+                }
+            }
+        }
+    }
+}
+@media only screen and (max-width: 375px) {
+    #menu .wrraper {
+        .list_menu {
+            .project {
+                height: 50px;
+                font-size: 10px;
+                .icon_menu {
+                    padding-right: 5px;
+                }
+            }
+        }
     }
 }

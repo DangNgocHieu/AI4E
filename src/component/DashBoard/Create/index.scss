@@ -10,7 +10,7 @@
         color: #0d2b7c;
         font-weight: 500;
         padding: 100px 0 50px 0;
-        text-align: center;;
+        text-align: center;
     }
     .list_domain {
         display: flex;
@@ -19,18 +19,50 @@
         justify-content: space-between;
         margin: 0 auto;
         .domain {
-          width: 30%;
-          padding-bottom: 10px;
+            width: 30%;
+            padding-bottom: 10px;
             .btn_domain {
                 width: 100%;
                 height: 150px;
-                background-color: #E8F5FF;
+                background-color: #e8f5ff;
                 outline: none;
-                border-color: #0076FF;
+                border-color: #0076ff;
                 border-radius: 8px;
                 font-size: 20px;
                 font-weight: 500;
-                color: #0D2B7C;
+                color: #0d2b7c;
+            }
+        }
+    }
+}
+@media only screen and (max-width: 360px) {
+    #create {
+        .list_domain {
+            margin-top: 50px;
+            height: 200px;
+            .domain {
+                .btn_domain {
+                    height: 60px;
+                    font-size: 12px;
+                }
+            }
+        }
+    }
+}
+@media only screen and (max-width: 375px) {
+    #create {
+        .text_domain {
+            padding: 0;
+        }
+        .list_domain {
+            margin-top: 50px;
+            height: 200px;
+            .domain {
+                width: 32%;
+                .btn_domain {
+                    height: 90px;
+                    font-size: 12px;
+                }
             }
         }
     }
