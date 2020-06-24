@@ -5,6 +5,7 @@ import ProjectOne from '../ProjectOne';
 import Create from '../Create';
 import Domain01 from '../Domain01';
 import ModelSetting from '../ModelSetting'
+import LineChart from '../LineChart'
 
 class ContainerDashBoard extends Component {
 

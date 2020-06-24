@@ -136,16 +136,16 @@ class Domain extends Component {
                                     </button>
                                     <button className="btn_next">
                                         <Link className="text_next" to={"/model"}>Next</Link >
-                                            <FontAwesomeIcon icon={faChevronRight} />
+                                        <FontAwesomeIcon icon={faChevronRight} />
                                     </button>
 
                                 </div>
-                                </div>
                             </div>
-
                         </div>
+
                     </div>
-                </div >
+                </div>
+            </div >
         );
     }
 }

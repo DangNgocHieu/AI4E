@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
 import "./index.scss"
+import LineChart from '../LineChart';
 class ProjectOne extends Component {
     render() {
         return (
@@ -17,9 +18,9 @@ class ProjectOne extends Component {
                         <div id="project">
                             <p className="text_domain">Domain 01</p>
                             <div className="chart">
-                                <img src="https://scontent.fhan2-3.fna.fbcdn.net/v/t1.15752-9/104437738_2704473473167719_3971967571801694842_n.png?_nc_cat=108&_nc_sid=b96e70&_nc_ohc=30GIgoZXEU4AX-ryja9&_nc_ht=scontent.fhan2-3.fna&oh=b8b82411969368982d9986059b3b0ef7&oe=5F17A729"></img>
-                                <img src="https://scontent.fhan2-4.fna.fbcdn.net/v/t1.15752-9/104810429_1203919179984984_3403971174452972525_n.png?_nc_cat=100&_nc_sid=b96e70&_nc_ohc=PhrRx_p36JYAX98hJa5&_nc_ht=scontent.fhan2-4.fna&oh=487760065d66e825a1c72ce7794677a4&oe=5F18BD24"></img>
-                                <img src="https://scontent.fhan2-4.fna.fbcdn.net/v/t1.15752-9/104981586_255208352437550_5389192417200094710_n.png?_nc_cat=104&_nc_sid=b96e70&_nc_ohc=gSPHCQSgznAAX_gHdF6&_nc_ht=scontent.fhan2-4.fna&oh=98c8c044dce82acce8776e22854f56e3&oe=5F163487"></img>
+                                <img src="https://scontent.fhan5-4.fna.fbcdn.net/v/t1.15752-9/104981586_255208352437550_5389192417200094710_n.png?_nc_cat=104&_nc_sid=b96e70&_nc_ohc=KQQoIYLNzLQAX_PF1Cc&_nc_ht=scontent.fhan5-4.fna&oh=f0099b5f3a6b1cb77cdc63eb6f978437&oe=5F1A2907"></img>
+                                <img src="https://scontent.fhan5-7.fna.fbcdn.net/v/t1.15752-9/104810429_1203919179984984_3403971174452972525_n.png?_nc_cat=100&_nc_sid=b96e70&_nc_ohc=mI3QRLtTACAAX8zLHGC&_nc_ht=scontent.fhan5-7.fna&oh=a6f3a0a9bda94e6533dec7abd9d9912c&oe=5F18BD24"></img>
+                                <img src="https://scontent-sin6-2.xx.fbcdn.net/v/t1.15752-9/104437738_2704473473167719_3971967571801694842_n.png?_nc_cat=108&_nc_sid=b96e70&_nc_ohc=30GIgoZXEU4AX8C5iAH&_nc_ht=scontent-sin6-2.xx&oh=ddcb4851687ac54921702ea42e8e1d8f&oe=5F17A729"></img>
                             </div>
                             <div className="footer">
                                 <div className="text_data">

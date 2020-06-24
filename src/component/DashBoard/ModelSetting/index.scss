@@ -87,7 +87,7 @@
                     flex-direction: column;
                     justify-content: space-around;
                     border-radius: 8px;
-                    opacity: 0;
+                    display: none;
                     p {
                         color: #0d2b7c;
                         font-weight: 500;
@@ -99,11 +99,7 @@
                         padding-left: 10px;
                     }
                 }
-                &:hover {
-                    .info_model {
-                        opacity: 1;
-                    }
-                }
+               
                 .text_model {
                     line-height: 60px;
                     color: #0d2b7c;
@@ -111,7 +107,11 @@
                     padding-left: 20px;
                 }
             }
-
+            .model:hover {
+                .info_model {
+                    display: block;
+                }
+            }
             .model::before {
                 content: "";
                 position: absolute;
