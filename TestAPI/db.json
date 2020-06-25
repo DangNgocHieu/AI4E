@@ -1,0 +1,124 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    },
+    {
+      "title": "ha cho",
+      "author": "mau giao",
+      "id": 2
+    }
+  ],
+  "modellist": {
+    "status": "success",
+    "trained_model": [
+      {
+        "model_id": "A1",
+        "name": "Test 2"
+      },
+      {
+        "model_id": "A2",
+        "name": "Test 2"
+      }
+    ]
+  },
+  "field": {
+    "status": "success",
+    "fields": [
+      {
+        "field": "A"
+      },
+      {
+        "field": "B"
+      },
+      {
+        "field": "C"
+      },
+      {
+        "field": "D"
+      },
+      {
+        "field": "E"
+      },
+      {
+        "field": "F"
+      },
+      {
+        "field": "G"
+      },
+      {
+        "field": "H"
+      }
+    ]
+  },
+  "test": {
+    "status": "success",
+    "input_field": [
+      {
+        "field": "A"
+      },
+      {
+        "field": "B"
+      },
+      {
+        "field": "C"
+      },
+      {
+        "field": "D"
+      },
+      {
+        "field": "E"
+      },
+      {
+        "field": "F"
+      }
+    ],
+    "output_field": [
+      {
+        "field": "C"
+      },
+      {
+        "field": "D"
+      },
+      {
+        "field": "E"
+      },
+      {
+        "field": "F"
+      }
+    ],
+    "acc_test": "88%",
+    "interval_unit": "day"
+  },
+  "domain": {
+    "status": "success",
+    "domains": [
+      {
+        "domain_id": 1,
+        "name": "Water Resource",
+        "description": "asdsad"
+      },
+      {
+        "domain_id": 2,
+        "name": "Air Quality",
+        "description": "asdsad"
+      },
+      {
+        "domain_id": 3,
+        "name": "Temperature",
+        "description": "asdsad"
+      },
+      {
+        "domain_id": 4,
+        "name": "Other",
+        "description": "asdsad"
+      }
+    ]
+  },
+  "users": {
+    "username": "duy0911",
+    "password": "091100"
+  }
+}
