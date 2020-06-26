@@ -5,19 +5,20 @@ import Menu2 from '../../component/Menu2';
 import '../../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import ModelSetting2 from '../../component/DashBoard/ModelSetting2';
 import { LabelList } from 'recharts';
+import Create from '../../component/DashBoard/Create';
 
-class DashBoard extends Component {
+class Newproject extends Component {
   render() {
     return (
 
-      <div id="dashboard">
+      <div id="newproject">
         <div class ="row">
           <div class="col-3">
           <Menu2 />
           </div>
         
         <div class="col-8">
-        <ModelSetting2 />
+        <Create />
         </div>
         </div>
       </div>
@@ -25,4 +26,4 @@ class DashBoard extends Component {
   }
 }
 
-export default DashBoard;
+export default Newproject;

@@ -21,6 +21,7 @@ class ContainerDashBoard extends Component {
             return (
                 <div id="containerdashboard">
                 <ModelSetting2 />
+                
             </div>
             );
         }
