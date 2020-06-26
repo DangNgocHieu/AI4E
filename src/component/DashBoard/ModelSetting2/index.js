@@ -78,7 +78,7 @@ class ModelSetting2 extends Component {
 
     
     <div class="col-5">
-      <button type = "button" class="btn title-btn"><h2>Trained Models</h2></button>
+      <h2>Trained Models</h2>
       
       <div class="list-group">
         <Example/>
@@ -89,7 +89,7 @@ class ModelSetting2 extends Component {
     </div>
     {/* <div class="col-1"></div> */}
     <div class="col-5">
-    <button class="btn title-btn"><h2>Recommended Models</h2></button>
+    <h2>Recommended Models</h2>
       <div class="list-group group2">
         <Example/>
         <Example/>
