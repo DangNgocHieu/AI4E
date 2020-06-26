@@ -10,21 +10,20 @@ import { getTrainedModels, getDomainModel, cookieManager } from '../../../api ha
 function ModelList(props) {
 
   const [isOpen, setIsOpen] = useState(false);
-  var title_ = "Model name";
   const toggle = () => setIsOpen(!isOpen);
 
-  let input_fields = props.model.input_fields.map((field) => (
+  let input_fields = props.model.config.input_fields.map((field) => (
     <a href='#'>{field}&nbsp;</a>
   ))
 
-  let output_fields = props.model.output_fields.map((field) => (
+  let output_fields = props.model.config.output_fields.map((field) => (
     <a href='#'>{field}&nbsp;</a>
   ))
 
   return (
     <div id="test">
 
-      <a href="#" class="list-group-item btn-dark-blue" onClick={toggle} style={{ marginBottom: '1rem' }}>Model name</a>
+      <a href="#" class="list-group-item btn-dark-blue" onClick={toggle} style={{ marginBottom: '1rem' }}>{this.props.model.name}</a>
       <Collapse isOpen={isOpen}>
         <Card>
           <CardBody>
@@ -40,7 +39,7 @@ function ModelList(props) {
               </div>
               <div className="column">
                 <p>Time range you want to predict: </p>
-                <a href="#">{props.model.interval_unit}</a>
+                <a href="#">{props.model.config.interval_unit}</a>
               </div>
             </div>
             <div class="btn-group" role="group" aria-label="Basic example">
@@ -59,32 +58,20 @@ function ModelList(props) {
 class ModelSetting2 extends Component {
   constructor(props) {
     super(props)
-    this.state = {
-      train_model: [],
-      domain_model: []
-    }
   }
 
-  async componentDidMount() {
-    let user_id = cookieManager.getCookie('user_id')
-    let domain_id = this.props.domain_id
-
-    let trained_model = await getTrainedModels(user_id, domain_id)
-    let domain_model = await getDomainModel(domain_id)
-    this.setState({ trained_model: trained_model, domain_model: domain_model }, alert('API called successfully!'))
-  }
 
   render() {
 
     let trained_model_template = null
     let domain_model_template = null
 
-    if (this.state.train_model.length !== 0)
-      trained_model_template = this.state.train_model.map((model) => (
+    if (this.props.trained_models.length !== 0)
+      trained_model_template = this.props.trained_models.map((model) => (
         <ModelList model={model} />
       ))
-    if (this.state.domain_model.length !== 0)
-      trained_model_template = this.state.domain_model.map((model) => (
+    if (this.props.domain_models.length !== 0)
+      domain_model_template = this.props.domain_models.map((model) => (
         <ModelList model={model} />
       ))
 

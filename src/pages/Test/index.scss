@@ -1,0 +1,32 @@
+.btn-result {
+    background: #7474BF;  /* fallback for old browsers */
+        background: -webkit-linear-gradient(to right, #348AC7, #7474BF);  /* Chrome 10-25, Safari 5.1-6 */
+        background: linear-gradient(to right, #348AC7, #7474BF); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        color: #fff;
+        border: 3px solid #eee;
+        border-radius: 8px;
+}
+h2 {
+    color: #0D2B7C;
+    font-size: 4vh;
+    text-align: center;
+    margin-top: 4vh;
+    margin-bottom: 4vh;
+}
+.main {
+    background-color: #f2f2f2;
+    padding-bottom: 5vh;
+}
+.main-test {
+    margin-left: -15px !important;
+    margin-bottom: 5vh;
+    background-color:white;
+    h3 {
+        color: #0D2B7C;
+        font-size: 2.5vh;
+        text-align: center;
+        margin-bottom: 5px;
+        
+    }
+    padding-bottom: 5vh;
+}

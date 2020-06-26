@@ -74,7 +74,21 @@ export const getDomain = async () => {
     if (response.data.status === 'success') {
         return dms
     }
+}
 
+export const getProject = async (user_id) => {
+    let response = await axios.get(base_url + '/api/project/get', {
+        params: {
+            user_id: user_id
+        }
+    })
+
+    let projects = response.data.list_projects
+    if (response.data.status === 'success') {
+        console.log(projects)
+        return projects
+    }
+    return []
 }
 
 export const getDomainModel = (domainId) => {

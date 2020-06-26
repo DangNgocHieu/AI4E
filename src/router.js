@@ -10,6 +10,7 @@ import Upload from './component/Upload';
 import Newproject from './pages/Newproject';
 import Home from './pages/Home';
 import User from './pages/User';
+import ModelDetail from './pages/ModelDetail';
 // >>>>>>> ce73371ae161eb9b58e0350b8f85652ced8a925e
 const routes = [
     {
@@ -21,6 +22,11 @@ const routes = [
         path: '/Login',
         exact: false,
         main: ({ history }) => <Login history={history} />
+    },
+    {
+        path: '/ModelDetail',
+        exact: false,
+        main: ({ history }) => <ModelDetail history={history} />
     },
     {
         path: '/DashBoard',
