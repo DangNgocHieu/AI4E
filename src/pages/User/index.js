@@ -3,10 +3,10 @@ import React, { Component } from 'react';
 import ContainerDashBoard from '../../component/DashBoard/ContainerDashBoard';
 import Menu2 from '../../component/Menu2';
 import '../../../node_modules/bootstrap/dist/css/bootstrap.min.css';
-import ModelSetting2 from '../../component/DashBoard/ModelSetting2';
+import Welcome from '../../component/Welcome';
 import { LabelList } from 'recharts';
 
-class DashBoard extends Component {
+class User extends Component {
   render() {
     return (
 
@@ -17,7 +17,7 @@ class DashBoard extends Component {
           </div>
         
         <div class="col-8">
-        <ModelSetting2 />
+        <Welcome />
         </div>
         </div>
       </div>
@@ -25,4 +25,4 @@ class DashBoard extends Component {
   }
 }
 
-export default DashBoard;
+export default User;

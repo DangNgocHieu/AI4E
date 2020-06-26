@@ -1,4 +1,5 @@
 import React  from 'react';
+import {Link} from 'react-router-dom'
 export default function Login() {  
   return (
     <div id="login">         
@@ -15,7 +16,7 @@ export default function Login() {
             <input data-val="true" data-val-required="Nhập mật khẩu!" id="Password" name="Password" placeholder="Nhập mật khẩu" tabindex="2" type="password" />
           </div>
           <div className="login">
-          <button class="btn_login" type="button"> Login </button>
+          <Link to='./user'><button class="btn_login" type="button"> Login </button></Link>
           </div>
         </section>
       </div>

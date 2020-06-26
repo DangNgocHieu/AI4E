@@ -73,7 +73,9 @@ class ModelSetting2 extends Component {
                         <div id="model_setting">
                             
                             
-                        <div class="row">
+                        <div class="row list-model">
+    
+
     
     <div class="col-5">
       <button type = "button" class="btn title-btn"><h2>Trained Models</h2></button>

@@ -1,0 +1,42 @@
+.img_title {
+    margin-top: 5vh;
+}
+
+.img_banner {
+    
+    width: 100%;
+    height: 100%;
+}
+
+#home {
+    background-image: url(../../img/background.png);
+}
+
+.home-info {
+    margin-top: 15vh;
+    text-align: center;
+}
+
+
+.btn-primary {
+    background-color: #6296FF !important;
+}
+.support {
+    font-size: 12px;
+        color: #969696;
+        text-align: center;
+        width: 100%;
+        bottom: 0;
+        margin-bottom: 20px;
+        position: absolute;
+}
+.content-wrap {
+    color: #6296FF;
+    margin-top: 5vh;
+
+    h2 {
+        margin-top: 2vh;
+        font-size: large;
+        margin-bottom: 10vh;
+    }
+}
