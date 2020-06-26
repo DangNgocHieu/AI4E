@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const base_url = "http://localhost:4400"
+const base_url = "http://674e1181f7c0.ngrok.io"
 
 
 export const getTrainedModels = async (userId, domainId) => {
@@ -40,18 +40,15 @@ export const cookieManager = {
 
 export const login = async (username, password) => {
 
-    // axios.post(base_url + '/login', {
-    //     username: username,
-    //     password: password
-    // })
-    let response = await axios.post(base_url + '/users', {
+    let response = await axios.post(base_url + '/login', {
         username: username,
         password: password
     })
+
     console.log(response)
-    if (response.status === 201) {
-        // cookieManager.setCookie('user_id', response.data.user.id)
-        cookieManager.setCookie('user_id', response.data.username)
+    if (response.status === 200) {
+        cookieManager.setCookie('user_id', response.data.user.id)
+        // cookieManager.setCookie('user_id', response.data.username)
         return 'success'
     }
     else
@@ -90,17 +87,19 @@ export const getDomainModel = (domainId) => {
 }
 
 
-export const getDomainField = (domainId) => {
-    axios.get(base_url + '/api/model/field', {
-        data: {
-            domainId: domainId
-        }
-    }).then(response => {
-        let fields = response.data.fields
-        if (response.data.status === 'success') {
-            return fields
-        }
-    })
+export const getDomainField = async (domainId) => {
+    // let response = await axios.get(base_url + '/api/model/field', {
+    //     data: {
+    //         domainId: domainId
+    //     }
+    // })
+
+    let response = await axios.get(base_url + '/field')
+    let fields = response.data.fields
+    if (response.data.status === 'success') {
+        return fields
+    }
+
 }
 
 export const uploadFile = (file) => {

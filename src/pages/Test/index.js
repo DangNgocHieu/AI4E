@@ -10,6 +10,7 @@ class Test extends Component {
     return (
 
       <div id="test">
+        //TODO: domainID ?
         <Upload />
       </div>
     );

@@ -1,6 +1,5 @@
 {
-  "posts": [
-    {
+  "posts": [{
       "id": 1,
       "title": "json-server",
       "author": "typicode"
@@ -13,8 +12,7 @@
   ],
   "modellist": {
     "status": "success",
-    "trained_model": [
-      {
+    "trained_model": [{
         "model_id": "A1",
         "name": "Test 2"
       },
@@ -27,36 +25,18 @@
   "field": {
     "status": "success",
     "fields": [
-      {
-        "field": "A"
-      },
-      {
-        "field": "B"
-      },
-      {
-        "field": "C"
-      },
-      {
-        "field": "D"
-      },
-      {
-        "field": "E"
-      },
-      {
-        "field": "F"
-      },
-      {
-        "field": "G"
-      },
-      {
-        "field": "H"
-      }
+      "A",
+      "B",
+      "C",
+      "D",
+      "E",
+      "F",
+      "G"
     ]
   },
   "test": {
     "status": "success",
-    "input_field": [
-      {
+    "input_field": [{
         "field": "A"
       },
       {
@@ -75,8 +55,7 @@
         "field": "F"
       }
     ],
-    "output_field": [
-      {
+    "output_field": [{
         "field": "C"
       },
       {
@@ -94,8 +73,7 @@
   },
   "domain": {
     "status": "success",
-    "domains": [
-      {
+    "domains": [{
         "domain_id": 1,
         "name": "Water Resource",
         "description": "asdsad"
