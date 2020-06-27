@@ -5,54 +5,76 @@ import { faChevronDown, faArrowLeft, faChevronLeft, faChevronRight, faPlus } fro
 import './index.scss';
 import { Link } from 'react-router-dom';
 import '../../../../node_modules/bootstrap/dist/css/bootstrap.min.css';
-import { getTrainedModels, getDomainModel, cookieManager } from '../../../api handler/api_manager';
+// import { getTrainedModels, getDomainModel, cookieManager } from '../../../api handler/api_manager';
 
 function ModelList(props) {
 
   const [isOpen, setIsOpen] = useState(false);
   const toggle = () => setIsOpen(!isOpen);
 
-  let input_fields = props.model.config.input_fields.map((field) => (
-    <a href='#'>{field}&nbsp;</a>
-  ))
+  if (props.isTrained === 'true') {
+    let config = props.model.config
+    let in_fields = config.input_fields.map((field) => (
+      <a href='#'>{field}&nbsp;</a>
+    ))
 
-  let output_fields = props.model.config.output_fields.map((field) => (
-    <a href='#'>{field}&nbsp;</a>
-  ))
+    let out_fields = config.output_fields.map((field) => (
+      <a href='#'>{field}&nbsp;</a>
+    ))
 
-  return (
-    <div id="test">
+    return (
+      <div id="test">
 
-      <a href="#" class="list-group-item btn-dark-blue" onClick={toggle} style={{ marginBottom: '1rem' }}>{this.props.model.name}</a>
-      <Collapse isOpen={isOpen}>
-        <Card>
-          <CardBody>
+        <button class="list-group-item btn-dark-blue" onClick={toggle} style={{ marginBottom: '1rem', minWidth: '85%' }}>{props.model.name}</button>
+        <Collapse isOpen={isOpen}>
+          <Card>
+            <CardBody>
 
-            <div className="info_model">
-              <div className="column">
-                <p>Data field you have: </p>
-                {input_fields}
+              <div className="info_model">
+                <div className="column">
+                  <p>Data field you have: </p>
+                  {in_fields}
+                </div>
+                <div className="column">
+                  <p>Data field you want to predict: </p>
+                  {out_fields}
+                </div>
+                <div className="column">
+                  <p>Time range you want to predict: </p>
+                  <a href="#">{props.model.config.interval_unit}</a>
+                </div>
               </div>
-              <div className="column">
-                <p>Data field you want to predict: </p>
-                {output_fields}
-              </div>
-              <div className="column">
-                <p>Time range you want to predict: </p>
-                <a href="#">{props.model.config.interval_unit}</a>
-              </div>
-            </div>
-            <div class="btn-group" role="group" aria-label="Basic example">
-              <button type="button" class="btn btn-test"><Link to="/test">Test</Link></button>
-              <button type="button" class="btn btn-train"><Link to="/domain">Continue training</Link></button>
+              <div class="btn-group" role="group" aria-label="Basic example">
+                <button type="button" class="btn btn-test"><Link to="/test">Test</Link></button>
+                <button type="button" class="btn btn-train"><Link to="/domain">Continue training</Link></button>
 
-            </div>
+              </div>
 
-          </CardBody>
-        </Card>
-      </Collapse>
-    </div>
-  );
+            </CardBody>
+          </Card>
+        </Collapse>
+      </div>
+    );
+  }
+
+  else
+    return (
+      <div id="test">
+
+        <button class="list-group-item btn-dark-blue" onClick={toggle} style={{ marginBottom: '1rem', minWidth: '90%' }}>{props.model}</button>
+        <Collapse isOpen={isOpen}>
+          <Card>
+            <CardBody>
+              <div class="btn-group" role="group" aria-label="Basic example">
+                <button type="button" class="btn btn-test"><Link to="/test">Train</Link></button>
+                <button type="button" class="btn btn-train"><Link to="/domain">Continue training</Link></button>
+              </div>
+
+            </CardBody>
+          </Card>
+        </Collapse>
+      </div>
+    );
 }
 
 class ModelSetting2 extends Component {
@@ -65,14 +87,13 @@ class ModelSetting2 extends Component {
 
     let trained_model_template = null
     let domain_model_template = null
-
     if (this.props.trained_models.length !== 0)
       trained_model_template = this.props.trained_models.map((model) => (
-        <ModelList model={model} />
+        <ModelList model={model} isTrained='true' />
       ))
     if (this.props.domain_models.length !== 0)
       domain_model_template = this.props.domain_models.map((model) => (
-        <ModelList model={model} />
+        <ModelList model={model} isTrained='false' />
       ))
 
     return (

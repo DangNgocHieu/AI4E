@@ -37,14 +37,17 @@ class Menu2 extends Component {
   }
 
   renderRedirect = () => {
-    if (this.state.redirect)
+    if (this.state.redirect) {
+      console.log(this.state.domain_models)
       return <Redirect to={{
         pathname: this.state.redirect,
         state: {
           trained_models: this.state.trained_models,
-          domain_models: this.state.domain_models,
+          domain_models: this.state.domain_models
         }
       }}></Redirect>
+
+    }
   }
 
   render() {

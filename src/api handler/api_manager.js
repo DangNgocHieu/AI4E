@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const base_url = "http://674e1181f7c0.ngrok.io"
+const base_url = "http://07c9a7a22caf.ngrok.io"
 
 
 export const getTrainedModels = async (userId, domainId) => {
@@ -67,10 +67,11 @@ export const logout = () => {
 }
 
 export const getDomain = async () => {
-    // let response = await axios.get(base_url + '/api/domain/get')
-    let response = await axios.get(base_url + '/domain')
+    let response = await axios.get(base_url + '/api/domain/get')
+    //let response = await axios.get(base_url + '/domain')
 
     let dms = response.data.domains
+    console.log(dms)
     if (response.data.status === 'success') {
         return dms
     }
