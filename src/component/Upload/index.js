@@ -7,6 +7,7 @@ import { faChevronDown, faArrowLeft, faChevronLeft, faChevronRight, faCube, faPl
 import { Link } from 'react-router-dom';
 import '../../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import '../Upload/index.scss';
+import UserInfo from '../userInfo';
 // import './style.css';
 
 const checkboxes1 = [
@@ -88,26 +89,27 @@ class Upload extends Component {
       render() {
         return (
             <div id="upload">
-                <div class="row ">
-                    <div class="col-3 no-margin">
-                    <Menu2/>
-                    </div>
-                    <div class="col-8 bg-grey no-margin">
-                        <div class="wrraper_domain">
-                    <div className="dashboardRight ">
-                    <div className="dashboardInfo">
-                            <div className="back">
-                                <FontAwesomeIcon icon={faArrowLeft} />
-                                <Link className="link" to="/Dashboard">Back</Link>
-                        </div>
-                        <div className="info">
-                            <p className="text-name">Nguyen Phi Le</p>
-                            <img src="https://scontent.fhan2-3.fna.fbcdn.net/v/t1.15752-9/105482679_317488752589979_7247942203476025085_n.png?_nc_cat=107&_nc_sid=b96e70&_nc_ohc=SEpidIU1VuUAX-H_7h8&_nc_ht=scontent.fhan2-3.fna&oh=b51a82c2a4d047565a9fbf7ca2ef25b5&oe=5F17B4A6"></img>
-                            <FontAwesomeIcon className="icon" icon={faChevronDown} />
-                        </div>
-                    </div>
-</div>
-<div class="input-field mt-5">
+                <div class="row text-center ">
+  <div class="col-3">
+    <Menu2/>
+  </div>
+  <div class="col-8 ">
+    <div class="row text-center">
+    <UserInfo/>
+    <div class="col text-center">
+    <h2>Train Model</h2>
+    </div>
+    
+    </div>
+    <div class="col main-test">
+
+    
+    <div class="row">
+    
+      
+     
+      <div class="privacy-info text-justify col-5">
+      <div class="input-field mt-5">
 
 <div className="group_text_filed">
                                 <h2 className="text_choose">Please choose which data fields you have: </h2>
@@ -150,49 +152,81 @@ class Upload extends Component {
           <div className="group_text_filed">
                                 <h2 className="text_choose mt-4">Please choose time range you want to predict: </h2>
                                 <div className="choose_time">
-                                    <li>
-                                        <input type="checkbox" id="c1" name="cc" />
-                                        <label for="c1"><span></span>1000</label>
+                                    <li class="mt-2">
+                                    <label key="timeRange"> <Checkbox class="box" name="1000"   />1000
+                  
+                </label>
                                     </li>
-                                    <li>
-                                        <input type="checkbox" id="c1" name="cc" />
-                                        <label for="c1"><span></span>1500</label>
+                                    <li class="mt-2">
+                                    <label key="timeRange"> <Checkbox class="box" name="1500"   />1500
+                  
+                </label>
                                     </li>
-                                    <li>
-                                        <input type="checkbox" id="c1" name="cc" />
-                                        <label for="c1"><span></span>2000</label>
+                                    <li class="mt-2">
+                                    <label key="timeRange"> <Checkbox class="box" name="2000"   />2000
+                  
+                </label>
                                     </li>
                                 </div>
                             </div>
                             
          
                             
-                            <div class="upload-btn-wrapper">
-                                <button class="btn">Data Upload</button>
-                                <input type="file" name="myfile" />
-                            </div>
-                            <div className="pre_next">
+                            
+                            
+                    </div>
 
+                    </div>
+      </div>
+      <div class="col-5 text-justify">
+      <h3>Privacy Policy</h3>
+      <p>We collects a variety of information and data that you provided directly to us. We process your data to provide you with the Predicting Service that you
+                  have requested when accepting our Terms of Services. We may have a legitimate interest to process your data for testing, maintainance and for analytics, research, and reporting
+                  purposes. Without your information and data, we cannot provide you with the Services you have requested or you may be limited in your use of the Services. By clicking "Upload data"
+                  you agree to and accept our privacy policy. </p>
+          
+      </div>
+    </div>
+    <div class="row ">
+    <div class="col text-center">
+    
+                            <div class="row text-center">
+                                <div class="col"><input type="file" name="myfile" /></div>
+                            
+                            </div>
                                 
-                                <button className="btn_next">
-                                    <span className="text_next">See Result</span>
-                                    <FontAwesomeIcon icon={faChevronRight} />
-                                </button>
-
+                                {/* <button class="btn btn-result">See result</button> */}
                             </div>
-                    </div>
+    </div>
 
-                    </div>
-                </div>
+    
+                            <div class="row">
+                                <div class="col-5">
+                                <Link to='/Progress'><button class="btn train-btn">Retrain Model</button></Link>
+                                </div>
+                                <div class="col-5">
+                                <button class="btn train-btn">Continue training model</button>
+                                </div>
+                            </div>
+   
+    </div>
+  </div>
+</div>
+
+                
+                    
+                    
+
+
                 </div>
 
           
-                </div>
+                
           
           
         
         
-            </div>
+        
             
     
         )}}

@@ -15,8 +15,18 @@ body {
         border: 3px solid #eee;
         border-radius: 8px;
 }
+#progress {
+    width: 100%;
+}
+#newproject {
+    width: 100%;
+    padding-left: 0;
+    .col-3 {
+        padding-right: 0;
+    }
+}
 #root{
-    background-color: #c8ced350;
+    background-color: #f2f2f2;
     display: flex;
     position: relative;
     width: 100%;
@@ -29,6 +39,9 @@ body {
     background-color: #f2f2f2;
     width: 100%;
 }
+#train {
+    width: 100%
+;}
 #home {
     width: 100%;
 }
