@@ -204,7 +204,7 @@ class Domain extends Component {
     
                             <div class="row">
                                 <div class="col">
-                                <Link to='/result'><button class="btn train-btn">Recommended Models</button></Link>
+                                <Link to='/recommend'><button class="btn train-btn">Recommended Models</button></Link>
                                 </div>
                                 
                             </div>
