@@ -1,68 +1,13 @@
 import React, { Component } from 'react';
 import { render } from 'react-dom';
-import Checkbox  from './box';
+import Checkbox from './box';
 import Menu2 from '../Menu2';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronDown, faArrowLeft, faChevronLeft, faChevronRight, faCube, faPlus } from '@fortawesome/free-solid-svg-icons';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import '../../../node_modules/bootstrap/dist/css/bootstrap.min.css';
-import '../Upload/index.scss';
-import UserInfo from '../userInfo';
-// import './style.css';
-
-const checkboxes1 = [
-    {
-        name: 'Field 1',
-        key: 'field1',
-    label: 'Field 1',
-    },
-
-    {
-        name: 'Field 2',
-        key: 'field2',
-    label: 'Field 2',
-    },
-
-    {
-        name: 'Field 3',
-        key: 'field3',
-    label: 'Field 3',
-    },
-
-    {
-        name: 'Field 4',
-        key: 'field4',
-    label: 'Field 4',
-    },
-    
-]
-
-const checkboxes2 = [
-    {
-        name: 'Field 1',
-        key: 'field1',
-    label: 'Field 1',
-    },
-
-    {
-        name: 'Field 2',
-        key: 'field2',
-    label: 'Field 2',
-    },
-
-    {
-        name: 'Field 3',
-        key: 'field3',
-    label: 'Field 3',
-    },
-
-    {
-        name: 'Field 4',
-        key: 'field4',
-    label: 'Field 4',
-    },
-    
-]
+import './index.scss';
+import { getDomainField, uploadFile } from '../../api handler/api_manager';
 
 class Upload extends Component {
     constructor(props) {
@@ -70,134 +15,166 @@ class Upload extends Component {
 
         this.state = {
             showActionFilterList: false,
-            checkedItems: new Map(),
-          }
-      
-          this.handleChange = this.handleChange.bind(this);
+            checkedInputItems: new Map(),
+            checkedOutputItems: new Map(),
+            fields: [],
+            uploadedFile: null,
+            redirect: null
         }
-          showList = () => this.setState(prevState => ({
-            showActionFilterList: !prevState.showActionFilterList
-        }));  
-    
-    
-      handleChange(e) {
+
+        this.handleInputChange = this.handleInputChange.bind(this);
+        this.handleOutputChange = this.handleOutputChange.bind(this);
+    }
+    showList = () => this.setState(prevState => ({
+        showActionFilterList: !prevState.showActionFilterList
+    }));
+
+    async componentDidMount() {
+        //TODO: pass domainID from next Btn
+        let field = await getDomainField('1');
+        alert('Field: ' + field[0])
+        this.setState({ fields: field });
+    }
+
+    handleInputChange(e) {
         const item = e.target.name;
         const isChecked = e.target.checked;
-        this.setState(prevState => ({ checkedItems: prevState.checkedItems.set(item, isChecked) }));
-      }
-    
-      render() {
+        this.setState(prevState => ({ checkedInputItems: prevState.checkedInputItems.set(item, isChecked) }));
+    }
+
+    handleOutputChange(e) {
+        const item = e.target.name;
+        const isChecked = e.target.checked;
+        this.setState(prevState => ({ checkedOutputItems: prevState.checkedOutputItems.set(item, isChecked) }));
+    }
+
+    handleUploadFile(e) {
+        this.setState({
+            uploadedFile: e.target.files[0]
+        }, alert('file catched'))
+    }
+
+    handleSubmitBtn(e) {
+        if (this.state.uploadedFile !== null) {
+            uploadFile(this.state.uploadedFile)
+        }
+
+        this.setState({
+            redirect: '/recommend'
+        })
+    }
+
+    render() {
+
+        if (this.state.redirect) {
+            return <Redirect to={{
+                pathname: this.state.redirect,
+                state: {
+                    input_fields: this.state.checkedInputItems,
+                    output_fields: this.state.checkedOutputItems
+                }
+            }} />
+        }
+
+        let infieldTemplate = null
+        let outfieldTemplate = null
+
+        if (this.state.fields.length !== 0) {
+            infieldTemplate = this.state.fields.map(field => (
+                <div class="box">
+                    <label key={field}>
+                        <Checkbox class="box" name={field} checked={this.state.checkedInputItems} onChange={this.handleInputChange} />
+                    </label>
+                </div>
+            ))
+
+            outfieldTemplate = this.state.fields.map(field => (
+                <div class="box">
+                    <label key={field}>
+                        <Checkbox class="box" name={field} checked={this.state.checkedOutputItems} onChange={this.handleOutputChange} />
+                    </label>
+                </div>
+            ))
+        }
+
+
+
         return (
             <div id="upload">
-                <div class="row text-center ">
-  <div class="col-3">
-    <Menu2/>
-  </div>
-  <div class="col-8 ">
-    <div class="row text-center">
-    <UserInfo/>
-    <div class="col text-center">
-    <h2>Train Model</h2>
-    </div>
-    
-    </div>
-    <div class="col main-test">
-
-    
-    <div class="row">
-    
-      
-     
-      <div class="privacy-info text-justify col-5">
-      <div class="input-field mt-5">
-
-<div className="group_text_filed">
-                                <h2 className="text_choose">Please choose which data fields you have: </h2>
-                                <div class="form-check-inline">
-                    <React.Fragment>
-            {
-
-              checkboxes1.map(item => (
-                <div class="box">
-                <label key={item.key}>
-                  {item.name}
-                  <Checkbox class="box" name={item.name} checked={this.state.checkedItems.get(item.name)} onChange={this.handleChange} />
-                </label>
-                </div>
-              ))
-            }
-          </React.Fragment>
-          </div>
-          
+                <div class="row ">
+                    <div class="col-4">
+                        <Menu2 />
                     </div>
-
-                    <div className="group_text_filed  mt-4">
-                                <h2 className="text_choose">Please choose which data fields you want to predict: </h2>
-<div class="form-check-inline ">
-                    <React.Fragment>
-            {
-
-              checkboxes2.map(item => (
-                  <div class="box">
-                <label key={item.key}>
-                  {item.name}
-                  <Checkbox class="box" name={item.name} checked={this.state.checkedItems.get(item.name)} onChange={this.handleChange} />
-                </label>
-                </div>
-              ))
-            }
-          </React.Fragment>
-          </div>
-
-          <div className="group_text_filed">
-                                <h2 className="text_choose mt-4">Please choose time range you want to predict: </h2>
-                                <div className="choose_time">
-                                    <li class="mt-2">
-                                    <label key="timeRange"> <Checkbox class="box" name="1000"   />1000
-                  
-                </label>
-                                    </li>
-                                    <li class="mt-2">
-                                    <label key="timeRange"> <Checkbox class="box" name="1500"   />1500
-                  
-                </label>
-                                    </li>
-                                    <li class="mt-2">
-                                    <label key="timeRange"> <Checkbox class="box" name="2000"   />2000
-                  
-                </label>
-                                    </li>
+                    <div class="col-8 bg-grey no-margin">
+                        <div class="wrraper_domain">
+                            <div className="dashboardRight ">
+                                <div className="dashboardInfo">
+                                    <div className="back">
+                                        <FontAwesomeIcon icon={faArrowLeft} />
+                                        <Link className="link" to="/Dashboard">Back</Link>
+                                    </div>
+                                    <div className="info">
+                                        <p className="text-name">Nguyen Phi Le</p>
+                                        <img src="https://scontent.fhan2-3.fna.fbcdn.net/v/t1.15752-9/105482679_317488752589979_7247942203476025085_n.png?_nc_cat=107&_nc_sid=b96e70&_nc_ohc=SEpidIU1VuUAX-H_7h8&_nc_ht=scontent.fhan2-3.fna&oh=b51a82c2a4d047565a9fbf7ca2ef25b5&oe=5F17B4A6"></img>
+                                        <FontAwesomeIcon className="icon" icon={faChevronDown} />
+                                    </div>
                                 </div>
                             </div>
-                            
-         
-                            
-                            
-                            
-                    </div>
+                            <div class="input-field mt-5">
 
-                    </div>
-      </div>
-      <div class="col-5 text-justify">
-      <h3>Privacy Policy</h3>
-      <p>We collects a variety of information and data that you provided directly to us. We process your data to provide you with the Predicting Service that you
-                  have requested when accepting our Terms of Services. We may have a legitimate interest to process your data for testing, maintainance and for analytics, research, and reporting
-                  purposes. Without your information and data, we cannot provide you with the Services you have requested or you may be limited in your use of the Services. By clicking "Upload data"
-                  you agree to and accept our privacy policy. </p>
-          
-      </div>
-    </div>
-    <div class="row ">
-    <div class="col text-center">
-    
-                            <div class="row text-center">
-                                <div class="col"><input type="file" name="myfile" /></div>
-                            
-                            </div>
-                                
-                                {/* <button class="btn btn-result">See result</button> */}
-                            </div>
-    </div>
+                                <div className="group_text_filed">
+                                    <h2 className="text_choose">Please choose which data fields you have: </h2>
+                                    <div class="form-check-inline">
+                                        <React.Fragment>
+                                            {
+                                                infieldTemplate
+                                            }
+                                        </React.Fragment>
+                                    </div>
+                                </div>
+
+                                <div className="group_text_filed  mt-4">
+                                    <h2 className="text_choose">Please choose which data fields you want to predict: </h2>
+                                    <div class="form-check-inline ">
+                                        <React.Fragment>
+                                            {
+                                                outfieldTemplate
+                                            }
+                                        </React.Fragment>
+                                    </div>
+
+                                    <div className="group_text_filed">
+                                        <h2 className="text_choose mt-4">Please choose time range you want to predict: </h2>
+                                        <div className="choose_time">
+                                            <li>
+                                                <input type="checkbox" id="c1" name="cc" />
+                                                <label for="c1"><span></span>1 day</label>
+                                            </li>
+                                            <li>
+                                                <input type="checkbox" id="c1" name="cc" />
+                                                <label for="c1"><span></span>1 month</label>
+                                            </li>
+                                            <li>
+                                                <input type="checkbox" id="c1" name="cc" />
+                                                <label for="c1"><span></span>1 year</label>
+                                            </li>
+                                        </div>
+                                    </div>
+
+
+
+                                    <div class="upload-btn-wrapper">
+                                        <button class="btn">Data Upload</button>
+                                        <input type="file" name="myfile" onChange={this.handleUploadFile} />
+                                    </div>
+                                    <div className="pre_next">
+                                        <button className="btn_next" onClick={this.handleSubmitBtn}>
+                                            <span className="text_next">See Result</span>
+                                            <FontAwesomeIcon icon={faChevronRight} />
+                                        </button>
+
+                                    </div>
+                                </div>
 
     
                             <div class="row">
@@ -208,26 +185,13 @@ class Upload extends Component {
                                 <button class="btn train-btn">Continue training model</button>
                                 </div>
                             </div>
-   
-    </div>
-  </div>
-</div>
-
-                
-                    
-                    
-
-
+                        </div>
+                    </div>
                 </div>
+            </div>
+          </div>
 
-          
-                
-          
-          
-        
-        
-        
-            
-    
-        )}}
-    export default Upload;
+        )
+    }
+}
+export default Upload;
