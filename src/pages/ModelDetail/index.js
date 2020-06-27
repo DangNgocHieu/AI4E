@@ -11,6 +11,7 @@ class ModelDetail extends Component {
     render() {
         let trained_models = this.props.history.location.state.trained_models.list_models
         let domain_models = this.props.history.location.state.domain_models
+        let project_id = this.props.history.location.state.project_id
         console.log(trained_models)
         return (
 
@@ -21,7 +22,7 @@ class ModelDetail extends Component {
                     </div>
 
                     <div class="col-8">
-                        <ModelSetting2 domain_models={domain_models} trained_models={trained_models} />
+                        <ModelSetting2 project_id={project_id} domain_models={domain_models} trained_models={trained_models} />
                     </div>
                 </div>
             </div>

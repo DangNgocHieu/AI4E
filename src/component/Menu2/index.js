@@ -12,7 +12,8 @@ class Menu2 extends Component {
       redirect: null,
       projectList: [],
       trained_models: [],
-      domain_models: []
+      domain_models: [],
+      cur_project_id: null
     }
 
     this.handleClickCreate = this.handleClickCreate.bind(this);
@@ -37,6 +38,7 @@ class Menu2 extends Component {
       return <Redirect to={{
         pathname: this.state.redirect,
         state: {
+          project_id: this.state.cur_project_id,
           trained_models: this.state.trained_models,
           domain_models: this.state.domain_models
         }
@@ -52,7 +54,7 @@ class Menu2 extends Component {
 
     if (this.state.projectList.length !== 0) {
       btnTemplate = this.state.projectList.map((project) => (
-        <a className="project active" onClick={() => { this.setState({ trained_models: project.trained_models, domain_models: project.domain.domain_models, redirect: './modeldetail' }) }} >
+        <a className="project active" onClick={() => { this.setState({ trained_models: project.trained_models, domain_models: project.domain.domain_models, cur_project_id: project.project_id, redirect: './modeldetail' }) }} >
           <FontAwesomeIcon className="icon-menu" icon={faCube} />
           {project.name}
         </a>

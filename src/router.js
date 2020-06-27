@@ -5,7 +5,7 @@ import DashBoard from './pages/DashBoard';
 // import Products from './pages/Products';
 import Test from './pages/Test';
 
-import Domain01 from './component/DashBoard/Domain01';
+import Domain01 from './component/DashBoard/TrainAttr';
 import Upload from './component/Upload';
 import Newproject from './pages/Newproject';
 import Home from './pages/Home';
@@ -16,6 +16,7 @@ import Progress from './pages/Progress';
 import Domain from './pages/Domain';
 import Recommend from './pages/Recommend';
 import Result from './pages/Result';
+import TrainAttr from './component/DashBoard/TrainAttr';
 // >>>>>>> ce73371ae161eb9b58e0350b8f85652ced8a925e
 const routes = [
     {
@@ -41,13 +42,18 @@ const routes = [
     {
         path: '/Domain',
         exact: false,
-        main: ({ history }) => <Domain01 history={history} />
+        main: ({ history }) => <Domain history={history} />
+    },
+    {
+        path: '/TrainAttr',
+        exact: false,
+        main: ({ history }) => <TrainAttr history={history} />
     },
 
     {
         path: '/Test',
         exact: false,
-        main: ({ history }) => <Upload history={history} />
+        main: ({ history }) => <Test history={history} />
     },
 
     {

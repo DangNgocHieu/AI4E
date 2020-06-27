@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const base_url = "http://07c9a7a22caf.ngrok.io"
+const base_url = "http://c83f3dd3f130.ngrok.io"
 
 
 export const getTrainedModels = async (userId, domainId) => {
@@ -129,6 +129,7 @@ export const uploadFile = (file) => {
             return response.data.data_id
         }
     })
+
 }
 
 export const saveField = (in_fields, out_fields, horizon) => {
@@ -155,13 +156,13 @@ export const trainModel = (trainInfos) => {
 }
 
 
-export const testModel = (modelID) => {
-    axios.post(base_url + '/api/model/test', {
-        model_id: modelID
+export const testModel = async (model_id, project_id, user_id, data_id) => {
+    let response = await axios.post(base_url + '/api/model/test', {
+        model_id: model_id,
+        data_id: data_id,
+        project_id: project_id,
+        user_id: user_id
     })
-        .then((response) => {
-            return response.data.result
-        }, (error) => {
-            console.log(error)
-        });
+
+    return response.data.result
 }

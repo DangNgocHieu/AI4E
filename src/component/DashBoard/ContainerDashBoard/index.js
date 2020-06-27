@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import Menu from '../../Menu'
 import ProjectOne from '../ProjectOne';
 import Create from '../Create';
-import Domain01 from '../Domain01';
+import Domain01 from '../TrainAttr';
 import ModelSetting2 from '../ModelSetting2'
 
 class ContainerDashBoard extends Component {
@@ -12,7 +12,7 @@ class ContainerDashBoard extends Component {
         if (this.props.isChange === "create") {
             return (
                 <div id="containerdashboard">
-                    <Create a={this.props.isChange}/>
+                    <Create a={this.props.isChange} />
                 </div>
 
             );
@@ -20,9 +20,9 @@ class ContainerDashBoard extends Component {
         else {
             return (
                 <div id="containerdashboard">
-                <ModelSetting2 />
-                
-            </div>
+                    <ModelSetting2 />
+
+                </div>
             );
         }
     }

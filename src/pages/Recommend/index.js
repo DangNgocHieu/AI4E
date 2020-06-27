@@ -10,20 +10,21 @@ import Recommended from '../../component/DashBoard/Recommended';
 
 class Recommend extends Component {
     render() {
-        return(
-            
-                <div id="recommend">
-                    <div className="row">
-                        <div className="col-3">
-                            <Menu2 />
-                        </div>
-                        <div className="col-8">
-                            <Recommended />
-                        </div>
+        let state = this.props.history.location.state
+        return (
+
+            <div id="recommend">
+                <div className="row">
+                    <div className="col-3">
+                        <Menu2 />
+                    </div>
+                    <div className="col-8">
+                        <Recommended input={state.input_fields} output={this.output_fields} interval={state.interval} />
                     </div>
                 </div>
+            </div>
 
-            
+
         )
     }
 }

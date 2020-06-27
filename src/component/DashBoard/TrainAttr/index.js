@@ -9,7 +9,7 @@ import '../../../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import './index.scss';
 import { getDomainField, uploadFile } from '../../../api handler/api_manager';
 
-class Upload extends Component {
+class TrainAttr extends Component {
     constructor(props) {
         super(props);
 
@@ -20,7 +20,9 @@ class Upload extends Component {
             interval: null,
             fields: [],
             uploadedFile: null,
-            redirect: null
+            redirect: null,
+            input: [],
+            output: []
         }
 
         this.handleInputChange = this.handleInputChange.bind(this);
@@ -76,7 +78,9 @@ class Upload extends Component {
 
         // console.log(input)
         this.setState({
-            redirect: '/recommend'
+            redirect: '/Recommend',
+            input: input,
+            output: output
         })
 
     }
@@ -86,11 +90,19 @@ class Upload extends Component {
             return <Redirect to={{
                 pathname: this.state.redirect,
                 state: {
-                    input_fields: this.state.checkedInputItems,
-                    output_fields: this.state.checkedOutputItems
+                    input_fields: this.state.input,
+                    output_fields: this.state.output,
+                    interval: this.state.interval
                 }
             }} />
         }
+    }
+
+    radioChecked = (e) => {
+        console.log(e.target.value)
+        this.setState({ interval: e.currentTarget.value })
+
+        e.target.checked = true
     }
 
     render() {
@@ -169,16 +181,16 @@ class Upload extends Component {
                                         <h2 className="text_choose mt-4">Please choose time range you want to predict: </h2>
                                         <div className="choose_time">
                                             <li>
-                                                <input type="radio" name="cc" checked={this.setState({ interval: 'day' })} />
-                                                <label for="c1"><span></span>1 day</label>
+                                                <input type="radio" name="cc" value="day" onChange={this.radioChecked} checked={this.state.interval === 'day'} />
+                                                <label><span></span>1 day</label>
                                             </li>
                                             <li>
-                                                <input type="radio" name="cc" checked={this.setState({ interval: 'month' })} />
-                                                <label for="c1"><span></span>1 month</label>
+                                                <input type="radio" name="cc" value="month" onChange={this.radioChecked} checked={this.state.interval === 'month'} />
+                                                <label><span></span>1 month</label>
                                             </li>
                                             <li>
-                                                <input type="radio" name="cc" checked={this.setState({ interval: 'year' })} />
-                                                <label for="c1"><span></span>1 year</label>
+                                                <input type="radio" name="cc" value="year" onChange={this.radioChecked} checked={this.state.interval === 'year'} />
+                                                <label><span></span>1 year</label>
                                             </li>
                                         </div>
                                     </div>
@@ -207,4 +219,4 @@ class Upload extends Component {
         )
     }
 }
-export default Upload;
+export default TrainAttr;
