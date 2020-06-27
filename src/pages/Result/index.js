@@ -11,7 +11,10 @@ import './index.scss';
 import '../../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import User from '../User';
 import Chart from '../../img/chart1.png';
+import {Doughnut} from "react-chartjs-2";
 
+const label_fake = [1500, 1600, 1700, 1750, 1800, 1850, 1900, 1950, 1999, 2050];
+const train_fake = [86, 114, 106, 106, 107, 111, 133, 221, 783, 2478];
 class Progress extends Component {
 render() 
 {
@@ -38,7 +41,25 @@ render()
     </div>
     <div class="row illus text-center">
         <p class="charshow">
-        <img src={Chart} />
+        {/* <img src={Chart} /> */}
+        <Line 
+        data = {{
+            labels: label_fake,
+            datasets: [
+                {
+                    data: train_fake,
+                    label: "Train",
+                    borderColor: "#3e95cd",
+          fill: false
+                },
+{
+                data: train_fake,
+                label: "Train",
+                borderColor: "#3e95cd",
+      fill: false
+            },
+            ]
+        }}
         </p>
        
     </div>

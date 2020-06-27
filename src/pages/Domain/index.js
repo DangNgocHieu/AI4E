@@ -85,7 +85,7 @@ class Domain extends Component {
                         <h2>Our significant works</h2>
                         <div className="general-domain">
                             <div className="row">
-                                <div className="col-6 model model1">
+                                <div className="col-5 model model1">
                                     <div className="description">
                                         <label>Model 1</label>
                                         <p>This model is recommended to use in predicting PM2.5
@@ -107,7 +107,7 @@ class Domain extends Component {
                                 </div>
                             </div>
                             <div className="row">
-                            <div className="col-5">
+                            <div className="col-5 model1">
                                     <div className="description">
                                         <label>Model 1</label>
                                         <p>This model is recommended to use in predicting PM2.5
