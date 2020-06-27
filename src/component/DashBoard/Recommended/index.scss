@@ -1,0 +1,139 @@
+* {
+    box-sizing: content-box;
+}
+
+.wrraper_contaier {
+    h2{
+        margin-top: 1vh;
+        font-size: 1.8vw;
+    }
+    background-color: #F2F2F2;
+}
+
+.list-model {
+    background-color: white;
+}
+.dashboardRight {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    .back {
+        display: flex;
+        height: 60px;
+        align-items: center;
+        width: 6%;
+        padding-left: 20px;
+        justify-content: space-around;
+    }
+    .dashboardInfo,
+    .info {
+        margin-left: 0;
+        background-color: #fff;
+        height: 60px;
+        width: 100%;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        flex-direction: row;
+
+        .img {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+        }
+        .text-name {
+            color: #6296ff;
+            padding-right: 20px;
+        }
+    }
+    .dashboardProject,
+    .dashboardCreate,
+    .dashboardDomain01,
+    .dashboardModelSetting {
+        .text_project,
+        .text_create,
+        .text_domain,
+        .text_modelsetting {
+            height: 80px;
+            font-size: 24px;
+            color: #0d2b7c;
+            font-weight: 500;
+            width: 95%;
+            margin: 0 auto;
+            line-height: 80px;
+        }
+    }
+}
+#test {
+    box-sizing: border-box !important;
+    background-color: white;
+    
+    .menu-bar {
+        > h1 {
+            margin-top: 10px;
+        }
+        color: green($color: #000000);
+    }
+    .domain-title {
+        margin-top: 0vh;
+        padding-top: 5vh;
+        height: 15vh;
+        text-align: center;
+        background-color: #F2F2F2;
+        margin-bottom: 5vh;
+    }
+    .btn-dark-blue {
+        background: #7474BF;  /* fallback for old browsers */
+        background: -webkit-linear-gradient(to right, #348AC7, #7474BF);  /* Chrome 10-25, Safari 5.1-6 */
+        background: linear-gradient(to right, #348AC7, #7474BF); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        color: #fff;
+        border: 3px solid #eee;
+    }
+
+    .btn-dark-moon {
+        background: #141E30;  /* fallback for old browsers */
+        background: -webkit-linear-gradient(to right, #243B55, #141E30);  /* Chrome 10-25, Safari 5.1-6 */
+        background: linear-gradient(to right, #243B55, #141E30); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        color: #fff;
+        border: 3px solid #eee;
+    }
+
+    .btn-ultra-voilet {
+        background: #654ea3;  /* fallback for old browsers */
+        background: -webkit-linear-gradient(to left, #eaafc8, #654ea3);  /* Chrome 10-25, Safari 5.1-6 */
+        background: linear-gradient(to left, #eaafc8, #654ea3); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        color: #fff;
+        border: 3px solid #eee;
+    }
+    .list-group-item {
+        border-radius: 5px;
+        text-decoration:none;
+    }
+    .btn-test {
+        background: #11214C;
+        border-color: white;
+        color: white;
+        a {
+            text-decoration: none;
+            color: white;
+        }
+        
+    }
+    
+    .btn-train {
+        background: #11214C;
+        border-color: white;
+        color: white;
+        text-decoration: none;
+        a {
+            text-decoration: none;
+            color: white;
+        }
+    }
+    .group2 {
+        margin-right: 0;
+        
+    }
+}
+

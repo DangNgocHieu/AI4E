@@ -13,6 +13,9 @@ import User from './pages/User';
 import ModelDetail from './pages/ModelDetail';
 import Train from './pages/Train';
 import Progress from './pages/Progress';
+import Domain from './pages/Domain';
+import Recommend from './pages/Recommend';
+import Result from './pages/Result';
 // >>>>>>> ce73371ae161eb9b58e0350b8f85652ced8a925e
 const routes = [
     {
@@ -70,6 +73,25 @@ const routes = [
         exact: false,
         main: ({ history }) => <Progress history={history} />
     },
+
+    {
+        path: '/Upload',
+        exact: false,
+        main: ({ history }) => <Domain01 history={history} />
+    },
+
+    {
+        path: '/Recommend',
+        exact: false,
+        main: ({ history }) => <Recommend history={history} />
+    },
+
+    {
+        path: '/Result',
+        exact: false,
+        main: ({ history }) => <Result history={history} />
+    },
+
 ];
 
 export default routes;

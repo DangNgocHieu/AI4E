@@ -6,6 +6,7 @@ import Models from '../../component/Models';
 import Domain1 from '../../component/DashBoard/Domain01';
 import Upload from '../../component/Upload';
 import Menu2 from '../../component/Menu2';
+import { Link } from 'react-router-dom';
 import UserInfo from '../../component/userInfo';
 import './index.scss';
 import '../../../node_modules/bootstrap/dist/css/bootstrap.min.css';
@@ -63,7 +64,7 @@ class Test extends Component {
               </div>
               <div class="row">
                 <div class="col text-center">
-                  <button class="btn btn-result mt-3">See result</button>
+                  <Link to="/result"><button class="btn btn-result mt-3">See result</button></Link>
                 </div>
               </div>
             </div>
