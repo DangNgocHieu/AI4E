@@ -85,6 +85,7 @@ class ModelSetting2 extends Component {
 
   render() {
 
+    console.log(this.props.trained_models)
     let trained_model_template = null
     let domain_model_template = null
     if (this.props.trained_models.length !== 0)

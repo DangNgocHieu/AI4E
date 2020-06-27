@@ -11,6 +11,8 @@ import Newproject from './pages/Newproject';
 import Home from './pages/Home';
 import User from './pages/User';
 import ModelDetail from './pages/ModelDetail';
+import Train from './pages/Train';
+import Progress from './pages/Progress';
 // >>>>>>> ce73371ae161eb9b58e0350b8f85652ced8a925e
 const routes = [
     {
@@ -55,6 +57,18 @@ const routes = [
         path: '/User',
         exact: false,
         main: ({ history }) => <User history={history} />
+    },
+
+    {
+        path: '/Train',
+        exact: false,
+        main: ({ history }) => <Train history={history} />
+    },
+
+    {
+        path: '/Progress',
+        exact: false,
+        main: ({ history }) => <Progress history={history} />
     },
 ];
 

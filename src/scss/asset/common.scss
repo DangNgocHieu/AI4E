@@ -1,40 +1,73 @@
 * {
     box-sizing: content-box;
 }
+
 html {
     height: 100%;
 }
+
 body {
     height: 100%;
 }
+
 .btn {
-    background: #7474BF;  /* fallback for old browsers */
-        background: -webkit-linear-gradient(to right, #348AC7, #7474BF);  /* Chrome 10-25, Safari 5.1-6 */
-        background: linear-gradient(to right, #348AC7, #7474BF); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-        color: #fff;
-        border: 3px solid #eee;
-        border-radius: 8px;
+    background: #7474BF;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #348AC7, #7474BF);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #348AC7, #7474BF);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    color: #fff;
+    border: 3px solid #eee;
+    border-radius: 8px;
 }
-#root{
-    background-color: #c8ced350;
+
+#progress {
+    width: 100%;
+}
+
+#newproject {
+    width: 100%;
+    padding-left: 0;
+
+    .col-3 {
+        padding-right: 0;
+    }
+}
+
+#root {
+    background-color: #f2f2f2;
     display: flex;
     position: relative;
     width: 100%;
     box-sizing: border-box;
     background-size: 100%;
-    min-height: 100%;   
+    min-height: 100%;
     overflow: hidden;
 }
+
+#upload {
+    width: 100%;
+}
+
 #dashboard {
     background-color: #f2f2f2;
     width: 100%;
 }
+
+#train {
+    width: 100%;
+}
+
 #home {
     width: 100%;
 }
-#test {
+
+#test,
+#modeldetail {
     width: 100%;
 }
+
 #support {
     position: fixed;
     right: 10px;
@@ -50,13 +83,14 @@ body {
 
     .text {
         padding-left: 10px;
-        padding-right: 10px;    
+        padding-right: 10px;
         font-weight: bold;
         line-height: 30px;
         width: 144px;
         font-size: 12px;
         color: #fff;
     }
+
     .icon {
         width: 36px;
         padding-top: 10px;
@@ -66,14 +100,16 @@ body {
 
     }
 
-    
+
 }
-p{
+
+p {
     font-size: 14px;
-   margin: 0;
-   line-height: 24px;
-   color: #111111;
+    margin: 0;
+    line-height: 24px;
+    color: #111111;
 }
+
 .title {
     margin: 0;
     font-size: 31px;
@@ -81,6 +117,7 @@ p{
     font-weight: 500;
     padding-bottom: 30px;
 }
+
 h5 {
     margin: 0;
     padding-top: 0;
@@ -89,6 +126,7 @@ h5 {
     text-transform: uppercase;
 
 }
+
 h4 {
     color: #fff;
     text-transform: uppercase;
@@ -96,12 +134,14 @@ h4 {
     padding-bottom: 5px;
     margin: 10px 0 0 0;
     min-height: 27px;
-    
+
 }
+
 h3 {
     font-size: 14px;
     margin: 20px 0 0 0;
 }
+
 span {
     color: #4cb050;
     font-weight: bold;

@@ -176,12 +176,20 @@ class Upload extends Component {
                                     </div>
                                 </div>
 
+
+                                <div class="row">
+                                    <div class="col-5">
+                                        <Link to='/Progress'><button class="btn train-btn">Retrain Model</button></Link>
+                                    </div>
+                                    <div class="col-5">
+                                        <button class="btn train-btn">Continue training model</button>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-
 
         )
     }

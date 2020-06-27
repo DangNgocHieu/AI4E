@@ -102,15 +102,13 @@ export const getDomainModel = (domainId) => {
 }
 
 
-export const getDomainField = async (domainId) => {
-    // let response = await axios.get(base_url + '/api/model/field', {
-    //     data: {
-    //         domainId: domainId
-    //     }
-    // })
-
-    let response = await axios.get(base_url + '/field')
-    let fields = response.data.fields
+export const getDomainField = async (domainName) => {
+    let response = await axios.get(base_url + '/api/domain', {
+        params: {
+            name: domainName
+        }
+    })
+    let fields = response.data.domain.fields
     if (response.data.status === 'success') {
         return fields
     }
@@ -121,7 +119,7 @@ export const uploadFile = (file) => {
 
     var formData = new FormData()
     formData.append('file', file)
-    axios.post(base_url + '/api/model/upload', formData, {
+    axios.post(base_url + '/upload', formData, {
         headers: {
             'Content-Type': 'multipart/form-data'
         }

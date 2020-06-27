@@ -20,9 +20,7 @@ class Menu2 extends Component {
 
   async componentDidMount() {
     let user_id = cookieManager.getCookie('user_id')
-    console.log(user_id)
     let projList = await getProject(user_id)
-
     this.setState({ projectList: projList })
   }
 
@@ -32,13 +30,10 @@ class Menu2 extends Component {
     }));
     this.setState(prevState => ({ redirect: './Newproject' }));
 
-    console.log(this.state.isCreate);
-
   }
 
   renderRedirect = () => {
     if (this.state.redirect) {
-      console.log(this.state.domain_models)
       return <Redirect to={{
         pathname: this.state.redirect,
         state: {

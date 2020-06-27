@@ -1,5 +1,5 @@
 #create {
-    height: 608px;
+    min-height: 100%;
     background-color: #fff;
     width: 95%;
     margin: 0 auto;
@@ -34,6 +34,10 @@
                 .link {
                     text-decoration: none;
                 }
+            }
+            .btn_domain:hover {
+                color: #6296FF;
+                background-color: #091A46;
             }
         }
     }

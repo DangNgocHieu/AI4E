@@ -9,8 +9,9 @@ import Create from '../../component/DashBoard/Create';
 
 class ModelDetail extends Component {
     render() {
-        let trained_models = this.props.history.location.state.trained_models
+        let trained_models = this.props.history.location.state.trained_models.list_models
         let domain_models = this.props.history.location.state.domain_models
+        console.log(trained_models)
         return (
 
             <div id="modeldetail">
