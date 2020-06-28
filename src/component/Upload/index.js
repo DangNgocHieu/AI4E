@@ -32,7 +32,6 @@ class Upload extends Component {
     async componentDidMount() {
         //TODO: pass domainID from next Btn
         let field = await getDomainField('1');
-        alert('Field: ' + field[0])
         this.setState({ fields: field });
     }
 
@@ -51,7 +50,7 @@ class Upload extends Component {
     handleUploadFile(e) {
         this.setState({
             uploadedFile: e.target.files[0]
-        }, alert('file catched'))
+        })
     }
 
     handleSubmitBtn(e) {

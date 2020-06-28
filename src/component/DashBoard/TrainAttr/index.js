@@ -37,7 +37,6 @@ class TrainAttr extends Component {
         //TODO: pass domainID from next Btn
         let dm_name = this.props.history.location.query.domainName
         let field = await getDomainField(dm_name);
-        alert('Field: ' + field[0])
         this.setState({ fields: field });
     }
 
@@ -56,7 +55,7 @@ class TrainAttr extends Component {
     handleUploadFile = (e) => {
         this.setState({
             uploadedFile: e.target.files[0]
-        }, alert('file catched'))
+        })
     }
 
     handleUploadBtn = (e) => {

@@ -27,7 +27,11 @@ class Progress extends Component {
     }
 
     componentDidMount() {
-        let result = this.props.history.location.state.result
+        let result = null
+        if (this.props.history.location.state)
+            result = this.props.history.location.state.result
+        else if (this.props.history.location.query)
+            result = this.props.history.location.query.result
         let gt = JSON.parse(result.groundtruth)
         let pred = JSON.parse(result.output)
 

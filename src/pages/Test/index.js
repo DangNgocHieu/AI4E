@@ -30,7 +30,7 @@ class Test extends Component {
   handleUploadFile = (e) => {
     this.setState({
       uploadedFile: e.target.files[0]
-    }, alert('file catched'))
+    })
   }
 
   handleSubmitBtn = (e) => {
@@ -122,22 +122,24 @@ class Test extends Component {
                     console.log('PID ' + project_id + ' MID ' + model_id)
                     let data_id = localStorage.getItem('data_id')
                     console.log(data_id)
-                    let response = axios.post(base_url + '/api/model/test', {
+                    axios.post(base_url + '/api/model/test', {
                       model_id: model_id,
                       data_id: data_id,
                       project_id: project_id,
                       user_id: user_id
+                    }).then(response => {
+                      let result = null
+                      if (response.data.status === 'success') {
+                        result = response.data.result
+                      }
+                      console.log(result)
+                      //TODO: pass result to result page
+                      this.setState({
+                        result: result,
+                        redirect: '/result'
+                      })
                     })
-                    let result = null
-                    if (response.data.status === 'success') {
-                      result = response.data.result
-                    }
-                    console.log(result)
-                    //TODO: pass result to result page
-                    this.setState({
-                      result: result
-                    })
-                  }}> <Link class="link" to={{ pathname: "/result", query: { result: this.state.result } }}>See result</Link></button>
+                  }}> <Link class="link" to={{ pathname: this.state.redirect, query: { result: this.state.result } }}>See result</Link></button>
                 </div>
               </div>
             </div>

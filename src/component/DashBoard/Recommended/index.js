@@ -100,6 +100,7 @@ class Example extends Component {
                   }
                 }
                 let model_id = null
+                alert("SERVER IS CURRENTLY TRAINING MODEL, STANDBY...\nPAGE WILL BE REDIRECTED WHEN FINISH TRAINING")
                 axios.post(base_url + '/api/model/create', trainInfos)
                   .then((response) => {
                     if (response.data.status === 'success') {
@@ -109,6 +110,7 @@ class Example extends Component {
                       trainInfos['data_id'] = localStorage.getItem('data_id')
                       axios.post(base_url + '/api/model/train', trainInfos)
                         .then((response) => {
+
                           if (response.data.status === 'success') {
                             this.setState({ result: response.data.result, redirect: '/result' })
                           }
@@ -255,6 +257,7 @@ class Recommended extends Component {
 
                   <div class="list-group">
                     <Example input={this.props.input} output={this.props.output} interval={this.props.interval} data_id={this.props.data_id} name='XGBoost' />
+                    <Example input={this.props.input} output={this.props.output} interval={this.props.interval} data_id={this.props.data_id} name='LSTMED' />
                   </div>
 
                 </div>

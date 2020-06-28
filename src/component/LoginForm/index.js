@@ -29,17 +29,13 @@ class LoginForm extends React.Component {
 
     async handleSubmit(event) {
         event.preventDefault()
-        alert('username: ' + this.state.username + '\npassword: ' + this.state.password)
 
         let status = await login(this.state.username, this.state.password)
-        alert(status)
         if (status === 'success') {
             this.setState({
                 redirect: '/dashboard'
             })
         }
-        else
-            alert('Invalid account')
     }
 
     render() {
