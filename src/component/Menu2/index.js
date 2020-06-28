@@ -4,7 +4,11 @@ import { faEyeSlash, faCube, faExchangeAlt, faUser, faDollarSign, faMale, faChar
 import '../../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import { getProject, cookieManager } from '../../api handler/api_manager'
 import { Redirect } from 'react-router-dom'
+
+
+
 class Menu2 extends Component {
+  
   constructor(props) {
     super(props)
     this.state = {

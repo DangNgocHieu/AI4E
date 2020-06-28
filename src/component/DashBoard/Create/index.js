@@ -44,7 +44,7 @@ class Create extends Component {
 
             domains = this.state.domain_list.map((dm) => (
                 <div className="domain">
-                    <button className="btn_domain" ><Link className="link btn_domain" to={"/Domain" + dm.domain_id}>{dm.name}</Link>
+                    <button className="btn_domain" ><Link className="link btn_domain" to={{pathname: "/Domain", query: {domainName: dm.name}}}>{dm.name}</Link>
                     </button>
                     <p>{dm.description}</p>
                 </div>

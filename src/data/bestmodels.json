@@ -1,0 +1,123 @@
+{
+    "water": [
+    {
+        "name": "XG-Boost",
+        "accuracy": "96.6%",
+        "field": "PM2.5",
+        "other": "CNN, CRNN"
+    },
+
+    {
+        "name": "Autoencoders",
+        "accuracy": "97%",
+        "field": "Pm2.5",
+        "other": "CNN, CRNN"
+    },
+
+    {
+        "name": "LSTM",
+        "accuracy": "97%",
+        "field": "q-Discharge",
+        "other": "CNN, CRNN"
+    }
+
+
+    ],
+    "rainfall": [
+        {
+            "name": "XG-Boost",
+            "accuracy": "96.6%",
+            "field": "PM2.5",
+            "other": "CNN, CRNN"
+        },
+    
+        {
+            "name": "Autoencoders",
+            "accuracy": "97%",
+            "field": "Pm2.5",
+            "other": "CNN, CRNN"
+        },
+    
+        {
+            "name": "LSTM",
+            "accuracy": "97%",
+            "field": "PM 2.5",
+            "other": "CNN, CRNN"
+        }
+    
+    
+        ],
+    "energy": [
+            {
+                "name": "XG-Boost",
+                "accuracy": "96.6%",
+                "field": "PM2.5",
+                "other": "CNN, CRNN"
+            },
+        
+            {
+                "name": "Autoencoders",
+                "accuracy": "97%",
+                "field": "Pm2.5",
+                "other": "CNN, CRNN"
+            },
+        
+            {
+                "name": "LSTM",
+                "accuracy": "97%",
+                "field": "PM 2.5",
+                "other": "CNN, CRNN"
+            }
+        
+        
+            ],
+            "temperature": [
+                {
+                    "name": "XG-Boost",
+                    "accuracy": "96.6%",
+                    "field": "PM2.5",
+                    "other": "CNN, CRNN"
+                },
+            
+                {
+                    "name": "Autoencoders",
+                    "accuracy": "97%",
+                    "field": "Pm2.5",
+                    "other": "CNN, CRNN"
+                },
+            
+                {
+                    "name": "LSTM",
+                    "accuracy": "97%",
+                    "field": "PM 2.5",
+                    "other": "CNN, CRNN"
+                }
+            
+            
+                ],
+                "air_pollution": [
+                    {
+                        "name": "XG-Boost",
+                        "accuracy": "96.6%",
+                        "field": "PM2.5",
+                        "other": "CNN, CRNN"
+                    },
+                
+                    {
+                        "name": "Autoencoders",
+                        "accuracy": "97%",
+                        "field": "Pm2.5",
+                        "other": "CNN, CRNN"
+                    },
+                
+                    {
+                        "name": "LSTM",
+                        "accuracy": "97%",
+                        "field": "PM 2.5",
+                        "other": "CNN, CRNN"
+                    }
+                
+                
+                    ]
+
+}
