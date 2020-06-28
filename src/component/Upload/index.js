@@ -176,7 +176,6 @@ class Upload extends Component {
                                     </div>
                                 </div>
 
-<<<<<<< HEAD
 
                                 <div class="row">
                                     <div class="col-5">
@@ -185,25 +184,12 @@ class Upload extends Component {
                                     <div class="col-5">
                                         <button class="btn train-btn">Continue training model</button>
                                     </div>
-=======
-    
-                            <div class="row">
-                                <div class="col-5">
-                                <Link to='/Progress'><button class="btn train-btn">Retrain Model</button></Link>
-                                </div>
-                                <div class="col-5">
-                                <button class="btn train-btn">Continue training model</button>
->>>>>>> 8c95fc9728876ae465096717e08d7f02c0320140
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-<<<<<<< HEAD
-=======
-          </div>
->>>>>>> 8c95fc9728876ae465096717e08d7f02c0320140
 
         )
     }

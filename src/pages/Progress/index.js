@@ -1,10 +1,5 @@
 import React, { Component } from 'react';
-// import Header from './../../component/Header';
-import ContainerDashBoard from '../../component/DashBoard/ContainerDashBoard';
-import Menu from '../../component/Menu';
-import Models from '../../component/Models';
-import Domain1 from '../../component/DashBoard/TrainAttr';
-import Upload from '../../component/Upload';
+import { Link } from 'react-router-dom';
 import Menu2 from '../../component/Menu2';
 import UserInfo from '../../component/userInfo';
 import './index.scss';
@@ -52,7 +47,7 @@ class Progress extends Component {
 
                                         </div>
                                         <div class="col-5 text-left">
-                                            <button class="btn">View Prediction</button>
+                                            <button class="btn"><Link to={{ pathname: "/result", query: { result: this.props.history.location.state.result } }} >View Prediction</Link></button>
                                         </div>
                                     </div>
                                 </div>

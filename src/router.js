@@ -17,8 +17,6 @@ import Domain from './pages/Domain';
 import Recommend from './pages/Recommend';
 import Result from './pages/Result';
 import TrainAttr from './component/DashBoard/TrainAttr';
-import ModelDetail from './pages/ModelDetail';
-// >>>>>>> ce73371ae161eb9b58e0350b8f85652ced8a925e
 const routes = [
     {
         path: '/',

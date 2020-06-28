@@ -16,9 +16,27 @@ import { Line } from "react-chartjs-2";
 const label_fake = ["1/1", "2/1", "3/1", "4/1", "5/1", "6/1", "7/1", "8/1", "9/1", "10/1"];
 const train_fake = [86, 114, 106, 106, 107, 111, 133, 221, 783, 2478];
 const test_fake = [168, 170, 178, 190, 203, 276, 408, 547, 675, 734];
-const y_label = "Predicted " + "field";
 class Progress extends Component {
+    constructor(props) {
+        super(props)
+        this.state = {
+            pred: [],
+            gtruth: [],
+            label: []
+        }
+    }
+
+    componentDidMount() {
+        let result = this.props.history.location.query.result
+        let gt = JSON.parse(result.groundtruth)
+        let pred = JSON.parse(result.output)
+
+        let label = [...Array(gt.length).keys()]
+        this.setState({ pred: pred, gtruth: gt, label: label })
+    }
+
     render() {
+        console.log(this.props)
         return (
             <div id="progress">
                 <div className="row text-center">
@@ -42,16 +60,16 @@ class Progress extends Component {
                                         <article className="canvas-container">
                                             <Line
                                                 data={{
-                                                    labels: label_fake,
+                                                    labels: this.state.label,
                                                     datasets: [
                                                         {
-                                                            data: train_fake,
+                                                            data: this.state.pred,
                                                             label: "Train",
                                                             borderColor: "#3e95cd",
                                                             fill: false
                                                         },
                                                         {
-                                                            data: test_fake,
+                                                            data: this.state.gtruth,
                                                             label: "Groundtruth",
                                                             borderColor: "#8e5ea2",
                                                             fill: false
@@ -61,7 +79,7 @@ class Progress extends Component {
                                                 options={{
                                                     title: {
                                                         display: true,
-                                                        text: "Predicted " + "field" + " by model " + "model_name",
+                                                        text: "Evaluate the model accuracy based on graph",
                                                     },
                                                     legend: {
                                                         display: true,
@@ -84,9 +102,6 @@ class Progress extends Component {
                             </div>
 
                         </div>
-
-
-
                     </div>
                 </div>
 

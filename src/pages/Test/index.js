@@ -1,10 +1,5 @@
 import React, { Component } from 'react';
-// import Header from './../../component/Header';
-import ContainerDashBoard from '../../component/DashBoard/ContainerDashBoard';
-import Menu from '../../component/Menu';
-import Models from '../../component/Models';
-import Domain1 from '../../component/DashBoard/TrainAttr';
-import Upload from '../../component/Upload';
+
 import Menu2 from '../../component/Menu2';
 import { Link } from 'react-router-dom';
 import UserInfo from '../../component/userInfo';
@@ -12,6 +7,7 @@ import './index.scss';
 import '../../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import { uploadFile, testModel, cookieManager } from '../../api handler/api_manager'
 import { Redirect } from 'react-router-dom'
+import axios from 'axios'
 class Test extends Component {
   constructor(props) {
     super(props)
@@ -20,7 +16,6 @@ class Test extends Component {
       redirect: null,
       model_id: null,
       project_id: null,
-      data_id: null,
       result: null
     }
   }
@@ -45,12 +40,12 @@ class Test extends Component {
     let project_id = this.state.project_id
     console.log('PID ' + project_id + ' MID ' + model_id)
     let result = testModel(model_id, project_id, user_id, this.state.data_id)
+    console.log(this.state.data_id)
 
     console.log(result)
     //TODO: pass result to result page
     this.setState({
-      result: result,
-      redirect: '/process'
+      result: result
     })
   }
 
@@ -119,7 +114,30 @@ class Test extends Component {
               <div class="row">
                 <div class="col text-center">
                   <button class="btn btn-result mt-3" onClick={this.uploadDataBtn}>Upload</button>
-                  <button class="btn btn-result mt-3" onClick={this.handleSubmitBtn}> <Link to="/result">See result</Link></button>
+                  <button class="btn btn-result mt-3" onClick={() => {
+                    const base_url = "http://1641c841f993.ngrok.io"
+                    let user_id = cookieManager.getCookie('user_id')
+                    let model_id = this.state.model_id
+                    let project_id = this.state.project_id
+                    console.log('PID ' + project_id + ' MID ' + model_id)
+                    let data_id = localStorage.getItem('data_id')
+                    console.log(data_id)
+                    let response = axios.post(base_url + '/api/model/test', {
+                      model_id: model_id,
+                      data_id: data_id,
+                      project_id: project_id,
+                      user_id: user_id
+                    })
+                    let result = null
+                    if (response.data.status === 'success') {
+                      result = response.data.result
+                    }
+                    console.log(result)
+                    //TODO: pass result to result page
+                    this.setState({
+                      result: result
+                    })
+                  }}> <Link to={{ pathname: "/result", query: { result: this.state.result } }}>See result</Link></button>
                 </div>
               </div>
             </div>
