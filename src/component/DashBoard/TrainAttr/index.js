@@ -7,7 +7,7 @@ import { faChevronDown, faArrowLeft, faChevronLeft, faChevronRight, faCube, faPl
 import { Link, Redirect } from 'react-router-dom';
 import '../../../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import './index.scss';
-import { getDomainField, uploadFile } from '../../../api handler/api_manager';
+import { getDomainField, uploadFile, cookieManager } from '../../../api handler/api_manager';
 
 class TrainAttr extends Component {
     constructor(props) {
@@ -22,7 +22,8 @@ class TrainAttr extends Component {
             uploadedFile: null,
             redirect: null,
             input: [],
-            output: []
+            output: [],
+            data_id: null
         }
 
         this.handleInputChange = this.handleInputChange.bind(this);
@@ -58,11 +59,18 @@ class TrainAttr extends Component {
         }, alert('file catched'))
     }
 
-    handleSubmitBtn = (e) => {
+    handleUploadBtn = (e) => {
+        let data_id = null;
         if (this.state.uploadedFile !== null) {
-            uploadFile(this.state.uploadedFile)
+            data_id = uploadFile(this.state.uploadedFile)
         }
+        if (!data_id) {
+            data_id = cookieManager.getCookie('data_id')
+        }
+        this.setState({ data_id: data_id })
+    }
 
+    handleSubmitBtn = (e) => {
 
         let input = []
         let output = []
@@ -92,7 +100,8 @@ class TrainAttr extends Component {
                 state: {
                     input_fields: this.state.input,
                     output_fields: this.state.output,
-                    interval: this.state.interval
+                    interval: this.state.interval,
+                    data_id: this.state.data_id
                 }
             }} />
         }
@@ -198,15 +207,19 @@ class TrainAttr extends Component {
 
 
                                     <div class="upload-btn-wrapper">
-                                        <button class="btn">Data Upload</button>
+                                        <button class="btn">Browse..</button>
                                         <input type="file" name="myfile" onChange={this.handleUploadFile} />
                                     </div>
                                     <div className="pre_next">
+                                        <button className="btn_next" onClick={this.handleUploadBtn}>
+                                            <span className="text_next">Upload File</span>
+                                            <FontAwesomeIcon icon={faChevronRight} />
+                                        </button>
+
                                         <button className="btn_next" onClick={this.handleSubmitBtn}>
                                             <span className="text_next">Train</span>
                                             <FontAwesomeIcon icon={faChevronRight} />
                                         </button>
-
                                     </div>
                                 </div>
 

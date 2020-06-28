@@ -22,6 +22,7 @@ class Menu2 extends Component {
   async componentDidMount() {
     let user_id = cookieManager.getCookie('user_id')
     let projList = await getProject(user_id)
+    console.log(projList)
     this.setState({ projectList: projList })
   }
 

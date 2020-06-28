@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const base_url = "http://c83f3dd3f130.ngrok.io"
+const base_url = "http://1641c841f993.ngrok.io"
 
 
 export const getTrainedModels = async (userId, domainId) => {
@@ -115,6 +115,22 @@ export const getDomainField = async (domainName) => {
 
 }
 
+export const createProject = (user_id, domain, project_name) => {
+    axios.post(base_url + '/api/project/create', {
+        user_id: user_id,
+        domain: domain,
+        project_name: project_name
+    }).then(response => {
+        if (response.data.status === 'success') {
+            cookieManager.setCookie('project_id', response.data.project_id)
+            // cookieManager.setCookie('user_id', response.data.username)
+            return 'success'
+        }
+        else
+            return 'fail'
+    })
+}
+
 export const uploadFile = (file) => {
 
     var formData = new FormData()
@@ -126,6 +142,7 @@ export const uploadFile = (file) => {
     }).then(response => {
         if (response.data.status === 'success') {
             console.log('FILE UPLOADED')
+            localStorage.setItem('data_id', response.data.data_id)
             return response.data.data_id
         }
     })
@@ -145,6 +162,19 @@ export const saveField = (in_fields, out_fields, horizon) => {
         })
 }
 
+export const createModel = (trainInfos) => {
+    axios.post(base_url + '/api/model/create', trainInfos)
+        .then((response) => {
+            if (response.data.status === 'success') {
+                localStorage.setItem('model_id', response.data.model_id)
+                cookieManager.setCookie('model_id', response.data.model_id)
+                return response.data.model_id
+            }
+        }, (error) => {
+            console.log(error)
+        });
+}
+
 
 export const trainModel = (trainInfos) => {
     axios.post(base_url + '/api/model/train', trainInfos)
@@ -155,6 +185,28 @@ export const trainModel = (trainInfos) => {
         });
 }
 
+export const createAndTrain = (trainInfos) => {
+    let model_id = null
+    axios.post(base_url + '/api/model/create', trainInfos)
+        .then((response) => {
+            if (response.data.status === 'success') {
+                console.log("INSIDE TRAIN")
+                model_id = response.data.model_id
+                trainInfos['model_id'] = model_id
+                trainInfos['data_id'] = localStorage.getItem('data_id')
+                axios.post(base_url + '/api/model/train', trainInfos)
+                    .then((response) => {
+                        if (response.data.status === 'success') {
+                            return response.data.result
+                        }
+                    }, (error) => {
+                        console.log(error)
+                    });
+            }
+        }, (error) => {
+            console.log(error)
+        });
+}
 
 export const testModel = async (model_id, project_id, user_id, data_id) => {
     let response = await axios.post(base_url + '/api/model/test', {

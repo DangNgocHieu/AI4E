@@ -4,52 +4,134 @@ import { Collapse, Button, CardBody, Card } from 'reactstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronDown, faArrowLeft, faChevronLeft, faChevronRight, faPlus } from '@fortawesome/free-solid-svg-icons';
 import './index.scss';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import '../../../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import UserInfo from '../../../component/userInfo';
-import { trainModel, cookieManager } from '../../../api handler/api_manager'
-function Example(props) {
+import { cookieManager, createAndTrain } from '../../../api handler/api_manager'
+import Async from 'react-async'
+import axios from 'axios'
 
-  const [isOpen, setIsOpen] = useState(false);
-  const toggle = () => setIsOpen(!isOpen);
-
-  let train_obj = {
-    user_id: cookieManager.getCookie('user_id'),
-    project_id: cookieManager.getCookie('project_id'),
-    model_name: props.name,
-    config: {
-      time_step: 0,
-      input_fields: props.input,
-      output_fields: props.output,
-      interval: props.interval
+class Example extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      result: null,
+      redirect: null
     }
   }
 
-  console.log(props.name)
-  return (
-    <div id="test">
+  // isAsync = () => {
+  //   if (this.state.async) {
+  //     return (<Async promiseFn={createAndTrain({
+  //       user_id: cookieManager.getCookie('user_id'),
+  //       project_id: cookieManager.getCookie('project_id'),
+  //       model_name: this.props.name,
+  //       config: {
+  //         time_step: 0,
+  //         input_fields: this.props.input,
+  //         output_fields: this.props.output,
+  //         interval: this.props.interval
+  //       }
+  //     })}>
+  //       <Async.Loading>Loading...</Async.Loading>
+  //       <Async.Fulfilled>
+  //         {data => {
+  //           console.log('RESULT ACCOMPLISH')
+  //           this.setState({ result: data, redirect: "/progress" })
+  //           return (<button><Link to={{ pathname: "/progress", query: { result: data } }}></Link></button>)
+  //         }}
+  //       </Async.Fulfilled>
+  //       <Async.Rejected>
+  //         {error => `Something went wrong: ${error.message}`}
+  //       </Async.Rejected>
+  //       {({ data, err, isLoading }) => {
+  //         if (isLoading) return "Loading..."
+  //         if (err) return `Something went wrong: ${err.message}`
 
-      <button class="list-group-item btn-dark-blue" onClick={toggle} style={{ marginBottom: '1rem' }}>{props.name}</button>
-      <Collapse isOpen={isOpen}>
+  //         if (data) {
+  //           console.log('RESULT ACCOMPLISH')
+  //           this.setState({ result: data, redirect: "/progress" })
+  //           return (
+  //             <button><Link to={{ pathname: "/progress", query: { result: data } }}></Link></button>
+  //           )
+  //         }
+  //       }}
+  //     </Async>)
+  //   }
+  // }
+
+  render() {
+    // let result = null
+
+    if (this.state.redirect) {
+      return <Redirect to={{
+        pathname: this.state.redirect,
+        state: {
+          result: this.state.result
+        }
+      }} />
+    }
+
+    return (
+      <div id="test">
+
+        <button class="list-group-item btn-dark-blue" style={{ marginBottom: '1rem' }}>{this.props.name}</button>
+
         <Card>
           <CardBody>
-
             <div className="info_model">
               <div className="column">
-                Accuracy with our data is: 96%
-                                        </div>
-
+              </div>
             </div>
             <div class="btn-group" role="group" aria-label="Basic example">
-              <button type="button" class="btn btn-train"><Link to="/progress" onClick={() => { trainModel(JSON.stringify(train_obj)) }}>Start training</Link></button>
+              <button type="button" class="btn btn-train" onClick={() => {
+                //this.setState({ async: true })
+                const base_url = "http://1641c841f993.ngrok.io"
+
+                let trainInfos = {
+                  user_id: cookieManager.getCookie('user_id'),
+                  project_id: cookieManager.getCookie('project_id'),
+                  model_name: this.props.name,
+                  config: {
+                    time_step: 0,
+                    input_fields: this.props.input,
+                    output_fields: this.props.output,
+                    interval: this.props.interval
+                  }
+                }
+                let model_id = null
+                axios.post(base_url + '/api/model/create', trainInfos)
+                  .then((response) => {
+                    if (response.data.status === 'success') {
+                      console.log("INSIDE TRAIN")
+                      model_id = response.data.model_id
+                      trainInfos['model_id'] = model_id
+                      trainInfos['data_id'] = localStorage.getItem('data_id')
+                      axios.post(base_url + '/api/model/train', trainInfos)
+                        .then((response) => {
+                          if (response.data.status === 'success') {
+                            this.setState({ result: response.data.result, redirect: '/progress' })
+                          }
+                        }, (error) => {
+                          console.log(error)
+                        });
+                    }
+                  }, (error) => {
+                    console.log(error)
+                  })
+
+              }}>
+                {/* <Link to={{ pathname: "/progress", query: { result: result } }}>Start training</Link> */}
+                Start Training
+              </button>
 
             </div>
 
           </CardBody>
         </Card>
-      </Collapse>
-    </div>
-  );
+      </div>
+    );
+  }
 }
 
 
@@ -109,7 +191,7 @@ class Recommended extends Component {
                   <h2>Recommended Models</h2>
 
                   <div class="list-group">
-                    <Example input={this.props.input} output={this.props.output} interval={this.props.interval} name='XGBoost' />
+                    <Example input={this.props.input} output={this.props.output} interval={this.props.interval} data_id={this.props.data_id} name='XGBoost' />
                   </div>
 
                 </div>

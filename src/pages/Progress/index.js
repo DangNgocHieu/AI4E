@@ -14,6 +14,7 @@ import Chart from '../../img/chart1.png';
 
 class Progress extends Component {
     render() {
+        console.log(this.props)
         return (
             <div id="progress">
                 <div className="row">

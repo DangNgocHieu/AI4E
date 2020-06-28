@@ -19,7 +19,7 @@ class Recommend extends Component {
                         <Menu2 />
                     </div>
                     <div className="col-8">
-                        <Recommended input={state.input_fields} output={this.output_fields} interval={state.interval} />
+                        <Recommended input={state.input_fields} output={state.output_fields} interval={state.interval} data_id={state.data_id} />
                     </div>
                 </div>
             </div>

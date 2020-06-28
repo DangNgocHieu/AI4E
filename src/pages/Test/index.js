@@ -60,6 +60,7 @@ class Test extends Component {
       data_id = uploadFile(this.state.uploadedFile)
     }
     console.log(data_id)
+    // this.setState({ data_id: data_id })
   }
 
   render() {
