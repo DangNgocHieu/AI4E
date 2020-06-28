@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const base_url = "http://1641c841f993.ngrok.io"
+const base_url = "http://1e92bb1bd243.ngrok.io"
 
 
 export const getTrainedModels = async (userId, domainId) => {

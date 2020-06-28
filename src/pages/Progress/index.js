@@ -26,20 +26,15 @@ class Progress extends Component {
                                     <div className="row show-progress">
 
                                         <div class="col-5">
-                                            <button type="button" class="btn progress-btn"><h2>Time remaining</h2>200s</button>
+                                            <button type="button" class="btn progress-btn"><h2>Time remaining</h2>0</button>
                                         </div>
                                         <div class="col-5">
-                                            <button type="button" class="btn progress-btn"><h2>Accuracy</h2>90%</button>
+                                            <button type="button" class="btn progress-btn"><h2>Accuracy</h2></button>
                                         </div>
 
 
                                     </div>
-                                    <div class="row illus text-center">
-                                        <p class="charshow">
-                                            <img src={Chart} />
-                                        </p>
 
-                                    </div>
 
                                     <div class="row mt-5 text-right">
                                         <div class="col-5">
@@ -47,7 +42,7 @@ class Progress extends Component {
 
                                         </div>
                                         <div class="col-5 text-left">
-                                            <button class="btn"><Link to={{ pathname: "/result", query: { result: this.props.history.location.state.result } }} >View Prediction</Link></button>
+                                            {/* <button class="btn"><Link to={{ pathname: "/result", query: { result: this.props.history.location.state.result } }} >View Prediction</Link></button> */}
                                         </div>
                                     </div>
                                 </div>

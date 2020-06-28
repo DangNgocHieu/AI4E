@@ -1,6 +1,11 @@
 * {
     box-sizing: content-box;
-    font-family: Roboto;
+    font-family: Roboto, sans-serif;
+}
+
+a {
+    color: white;
+    text-decoration: none;
 }
 
 html {
@@ -155,4 +160,3 @@ span {
     margin-left: 10px;
     margin-right: 10px;
 }
-

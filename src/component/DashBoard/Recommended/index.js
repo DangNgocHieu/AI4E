@@ -86,7 +86,7 @@ class Example extends Component {
             <div class="btn-group" role="group" aria-label="Basic example">
               <button type="button" class="btn btn-train" onClick={() => {
                 //this.setState({ async: true })
-                const base_url = "http://1641c841f993.ngrok.io"
+                const base_url = "http://1e92bb1bd243.ngrok.io"
 
                 let trainInfos = {
                   user_id: cookieManager.getCookie('user_id'),
@@ -110,7 +110,7 @@ class Example extends Component {
                       axios.post(base_url + '/api/model/train', trainInfos)
                         .then((response) => {
                           if (response.data.status === 'success') {
-                            this.setState({ result: response.data.result, redirect: '/progress' })
+                            this.setState({ result: response.data.result, redirect: '/result' })
                           }
                         }, (error) => {
                           console.log(error)
@@ -143,7 +143,7 @@ function Example1() {
   return (
     <div id="test">
 
-      <button class="list-group-item btn-dark-blue" onClick={toggle} style={{ marginBottom: '1rem' }}>Model name</button>
+      <button class="list-group-item btn-dark-blue" onClick={toggle} style={{ marginBottom: '1rem' }}>Linear Regression</button>
       <Collapse isOpen={isOpen}>
         <Card>
           <CardBody>
@@ -167,6 +167,69 @@ function Example1() {
   );
 }
 
+function Example2() {
+
+  const [isOpen, setIsOpen] = useState(false);
+  const toggle = () => setIsOpen(!isOpen);
+
+  return (
+    <div id="test">
+
+      <button class="list-group-item btn-dark-blue" onClick={toggle} style={{ marginBottom: '1rem' }}>SVM</button>
+      <Collapse isOpen={isOpen}>
+        <Card>
+          <CardBody>
+
+            <div className="info_model">
+              <div className="column">
+                <p>This model is not recommended for your need. But you may still want to try.</p>
+              </div>
+
+            </div>
+            <div class="btn-group" role="group" aria-label="Basic example">
+
+              <button type="button" class="btn btn-train"><Link to="/progress">KNNs</Link></button>
+
+            </div>
+
+          </CardBody>
+        </Card>
+      </Collapse>
+    </div>
+  );
+}
+
+function Example3() {
+
+  const [isOpen, setIsOpen] = useState(false);
+  const toggle = () => setIsOpen(!isOpen);
+
+  return (
+    <div id="test">
+
+      <button class="list-group-item btn-dark-blue" onClick={toggle} style={{ marginBottom: '1rem' }}>kNNs</button>
+      <Collapse isOpen={isOpen}>
+        <Card>
+          <CardBody>
+
+            <div className="info_model">
+              <div className="column">
+                <p>This model is not recommended for your need. But you may still want to try.</p>
+              </div>
+
+            </div>
+            <div class="btn-group" role="group" aria-label="Basic example">
+
+              <button type="button" class="btn btn-train"><Link to="/progress">Start training</Link></button>
+
+            </div>
+
+          </CardBody>
+        </Card>
+      </Collapse>
+    </div>
+  );
+}
 class Recommended extends Component {
   constructor(props) {
     super(props)
@@ -200,8 +263,8 @@ class Recommended extends Component {
                   <h2>Others</h2>
                   <div class="list-group group2">
                     <Example1 />
-                    <Example1 />
-                    <Example1 />
+                    <Example2 />
+                    <Example3 />
                     {/* <a href="#" class="list-group-item btn-ultra-voilet">First item</a>
       <a href="#" class="list-group-item btn-ultra-voilet">Second item</a>
       <a href="#" class="list-group-item btn-ultra-voilet">Third item</a> */}

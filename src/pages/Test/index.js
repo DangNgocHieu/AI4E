@@ -115,7 +115,7 @@ class Test extends Component {
                 <div class="col text-center">
                   <button class="btn btn-result mt-3" onClick={this.uploadDataBtn}>Upload</button>
                   <button class="btn btn-result mt-3" onClick={() => {
-                    const base_url = "http://1641c841f993.ngrok.io"
+                    const base_url = "http://1e92bb1bd243.ngrok.io"
                     let user_id = cookieManager.getCookie('user_id')
                     let model_id = this.state.model_id
                     let project_id = this.state.project_id
@@ -137,7 +137,7 @@ class Test extends Component {
                     this.setState({
                       result: result
                     })
-                  }}> <Link to={{ pathname: "/result", query: { result: this.state.result } }}>See result</Link></button>
+                  }}> <Link class="link" to={{ pathname: "/result", query: { result: this.state.result } }}>See result</Link></button>
                 </div>
               </div>
             </div>

@@ -169,7 +169,7 @@ class Upload extends Component {
                                     </div>
                                     <div className="pre_next">
                                         <button className="btn_next" onClick={this.handleSubmitBtn}>
-                                            <span className="text_next">See Result</span>
+                                            <span className="text_next">Choose Model</span>
                                             <FontAwesomeIcon icon={faChevronRight} />
                                         </button>
 

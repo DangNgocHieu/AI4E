@@ -6,7 +6,6 @@ import DashBoard from './pages/DashBoard';
 import Test from './pages/Test';
 
 import Domain01 from './component/DashBoard/TrainAttr';
-import Upload from './component/Upload';
 import Newproject from './pages/Newproject';
 import Home from './pages/Home';
 import User from './pages/User';

@@ -11,14 +11,16 @@ class User extends Component {
     return (
 
       <div id="dashboard">
-        <div class ="row">
+
+        <div class="row">
           <div class="col-3">
-          <Menu2 />
+            <Menu2 />
           </div>
-        
-        <div class="col-8">
-        <Welcome />
-        </div>
+
+          <div class="col-8">
+
+            <Welcome />
+          </div>
         </div>
       </div>
     );

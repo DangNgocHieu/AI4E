@@ -163,7 +163,7 @@ class TrainAttr extends Component {
                                     </div>
                                 </div>
                             </div>
-                            <div class="input-field mt-5">
+                            <div class="input-field mt-5 text-left">
 
                                 <div className="group_text_filed">
                                     <h2 className="text_choose">Please choose which data fields you have: </h2>
@@ -176,7 +176,7 @@ class TrainAttr extends Component {
                                     </div>
                                 </div>
 
-                                <div className="group_text_filed  mt-4">
+                                <div className="group_text_filed  mt-4 ">
                                     <h2 className="text_choose">Please choose which data fields you want to predict: </h2>
                                     <div class="form-check-inline ">
                                         <React.Fragment>
@@ -189,15 +189,15 @@ class TrainAttr extends Component {
                                     <div className="group_text_filed">
                                         <h2 className="text_choose mt-4">Please choose time range you want to predict: </h2>
                                         <div className="choose_time">
-                                            <li>
+                                            <li class="mb-3">
                                                 <input type="radio" name="cc" value="day" onChange={this.radioChecked} checked={this.state.interval === 'day'} />
                                                 <label><span></span>1 day</label>
                                             </li>
-                                            <li>
+                                            <li class="mb-3">
                                                 <input type="radio" name="cc" value="month" onChange={this.radioChecked} checked={this.state.interval === 'month'} />
                                                 <label><span></span>1 month</label>
                                             </li>
-                                            <li>
+                                            <li class="mb-3">
                                                 <input type="radio" name="cc" value="year" onChange={this.radioChecked} checked={this.state.interval === 'year'} />
                                                 <label><span></span>1 year</label>
                                             </li>
@@ -227,7 +227,7 @@ class TrainAttr extends Component {
                         </div>
                     </div>
                 </div>
-            </div>
+            </div >
 
         )
     }
